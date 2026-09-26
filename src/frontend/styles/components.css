@@ -1,0 +1,611 @@
+/* ==========================================================================
+   COMPONENTS.CSS — Blocos reutilizáveis (arquivo COMPARTILHADO)
+   --------------------------------------------------------------------------
+   Os nomes das classes vêm da tela inicial (.barraverde, .logo-box,
+   .btn-primario, .card...). Use estas classes na sua página em vez de
+   criar botões, cards e campos do zero.
+
+    1. Logo
+    2. Barra verde (cabeçalho)
+    3. Destaques de texto
+    4. Botões
+    5. Card
+    6. Formulários
+    7. Etiquetas de status
+    8. Barras de limite e de progresso
+    9. Cores das categorias
+   10. Tabela
+   11. Avisos
+   ========================================================================== */
+
+
+/* ---------- 1. LOGO ---------- */
+/* <div class="logo-box"> Conta / Aí + ícone </div> */
+
+.logo-link {
+  text-decoration: none;
+}
+
+.logo-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.85;
+}
+
+.logo-conta {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--cor-titulo);
+  letter-spacing: -0.5px;
+}
+
+.logo-linha-ai {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.logo-ai {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--cor-branco);
+}
+
+/* Ícone branco (o filtro transforma o verde do SVG em branco) */
+.logo-icone {
+  height: 22px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+/* Variação para fundo escuro (rodapé): "Conta" também fica branco */
+.logo-rodape .logo-conta {
+  color: var(--cor-branco);
+}
+
+
+/* ---------- 2. BARRA VERDE (cabeçalho de todas as páginas) ---------- */
+
+.barraverde {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-4);
+  width: 100%;
+  min-height: var(--altura-topo);
+  padding: var(--espaco-3) var(--espaco-4);
+  background-color: var(--cor-marca);
+  box-shadow: var(--sombra-barra);
+}
+
+
+/* ---------- 3. DESTAQUES DE TEXTO ---------- */
+
+/* Palavra em verde (usar só sobre fundo escuro, como no hero) */
+.texto-verde {
+  color: var(--cor-marca);
+}
+
+/* Traço verde curto embaixo de títulos */
+.linha-destaque {
+  width: 60px;
+  height: 4px;
+  margin-bottom: var(--espaco-5);
+  background-color: var(--cor-marca);
+  border-radius: 2px;
+}
+
+
+/* ---------- 4. BOTÕES ---------- */
+
+/* Botão principal verde (igual ao "Criar meu perfil") */
+.btn-primario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaco-2);
+  min-height: 44px;              /* área mínima de toque no celular */
+  padding: var(--espaco-3) var(--espaco-5);
+  border: none;
+  border-radius: var(--raio-m);
+  background-color: var(--cor-marca);
+  color: var(--cor-texto-botao);
+  font-size: var(--texto-base);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primario:hover {
+  background-color: var(--cor-marca-hover);
+  transform: translateY(-2px);
+}
+
+/* Botão transparente para fundo ESCURO (hero) */
+.btn-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: var(--espaco-3) var(--espaco-5);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--raio-m);
+  background-color: transparent;
+  color: var(--cor-branco);
+  font-size: var(--texto-base);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-secundario:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--cor-branco);
+}
+
+/* Botão com contorno para fundo CLARO (ações secundárias no painel) */
+.btn-contorno {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: var(--espaco-3) var(--espaco-5);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-m);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-size: var(--texto-base);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-contorno:hover {
+  border-color: var(--cor-marca);
+  background-color: var(--cor-marca-clara);
+}
+
+/* Link pequeno de ação ("Ver todos", "Ajustar") */
+.link-acao {
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-size: var(--texto-sm);
+  font-weight: 700;
+  color: var(--cor-marca-texto);
+  text-decoration: none;
+}
+
+.link-acao:hover {
+  text-decoration: underline;
+}
+
+
+/* ---------- 5. CARD ---------- */
+
+.card {
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-g);
+  padding: var(--espaco-5);
+  box-shadow: var(--sombra-card);
+  min-width: 0;
+}
+
+.card h3 {
+  font-size: 1.05rem;
+  margin-bottom: var(--espaco-2);
+}
+
+.card p {
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Grade de cards que se ajusta sozinha (Aula 10: auto-fit + minmax) */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: var(--espaco-5);
+}
+
+
+/* ---------- 6. FORMULÁRIOS ---------- */
+
+/* Um campo = <label> + <input> (+ dica) empilhados */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+}
+
+.campo label,
+.grupo-opcoes legend {
+  font-size: var(--texto-sm);
+  font-weight: 500;
+  color: var(--cor-texto);
+}
+
+.campo-dica {
+  font-size: var(--texto-xs);
+  color: var(--cor-texto-suave);
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: var(--espaco-2) var(--espaco-3);
+  background-color: var(--cor-fundo);
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio-m);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.campo input[type="color"] {
+  padding: var(--espaco-1);
+  cursor: pointer;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--cor-marca);
+  background-color: var(--cor-marca-clara);
+}
+
+/* Borda vermelha só depois que a pessoa mexeu no campo e ele ficou inválido */
+.campo input:user-invalid {
+  border-color: var(--cor-erro);
+}
+
+/* Grade dos formulários: 1 coluna no celular, mais em telas maiores */
+.grade-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-4);
+}
+
+.form-acoes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+}
+
+/* Grupo de opções (radio) com visual de botões lado a lado */
+.grupo-opcoes {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+}
+
+.opcoes {
+  display: flex;
+  padding: var(--espaco-1);
+  background-color: var(--cor-fundo-suave);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-m);
+}
+
+.opcoes input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.opcoes label {
+  flex: 1;
+  padding: var(--espaco-2) var(--espaco-3);
+  border-radius: var(--raio-p);
+  text-align: center;
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+}
+
+/* O label logo depois do radio marcado fica "selecionado" */
+.opcoes input:checked + label {
+  background-color: var(--cor-marca);
+  color: var(--cor-texto-botao);
+  font-weight: 700;
+}
+
+.opcoes input:focus-visible + label {
+  outline: 3px solid var(--cor-titulo);
+  outline-offset: 1px;
+}
+
+/* Painel "Novo ..." com <details> + <summary> (abre e fecha sem JavaScript) */
+.painel-form {
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-g);
+  box-shadow: var(--sombra-card);
+}
+
+.painel-form summary {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-3);
+  padding: var(--espaco-4);
+  font-weight: 700;
+  color: var(--cor-titulo);
+  cursor: pointer;
+  list-style: none;
+}
+
+.painel-form summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Ícone "+" que gira e vira "×" quando abre */
+.painel-form summary::before {
+  content: "+";
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--cor-marca);
+  color: var(--cor-texto-botao);
+  font-size: 1.4rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.painel-form[open] summary::before {
+  transform: rotate(45deg);
+}
+
+.painel-form[open] summary {
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.painel-form form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+  padding: var(--espaco-4);
+}
+
+
+/* ---------- 7. ETIQUETAS DE STATUS ---------- */
+
+.etiqueta {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--espaco-2);
+  border-radius: var(--raio-total);
+  font-size: var(--texto-xs);
+  font-weight: 700;
+  white-space: nowrap;
+  background-color: var(--cor-fundo-suave);
+  color: var(--cor-texto-suave);
+  border: 1px solid var(--cor-borda);
+}
+
+.etiqueta-ok     { background-color: var(--cor-ok-fundo);     color: var(--cor-ok-texto);     border-color: transparent; }
+.etiqueta-alerta { background-color: var(--cor-alerta-fundo); color: var(--cor-alerta-texto); border-color: transparent; }
+.etiqueta-erro   { background-color: var(--cor-erro-fundo);   color: var(--cor-erro-texto);   border-color: transparent; }
+
+
+/* ---------- 8. BARRAS ---------- */
+
+/*
+  <meter> = barra de LIMITE. O navegador escolhe a cor sozinho pelos atributos:
+    <meter min="0" max="LIMITE" low="80% do limite" high="LIMITE - 0.01"
+           optimum="0" value="GASTO">
+    abaixo de low       → verde    (dentro do planejado)
+    entre low e high    → amarelo  (perto do limite)
+    acima de high       → vermelho (estourou)
+*/
+meter {
+  display: block;
+  width: 100%;
+  height: 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  border-radius: var(--raio-total);
+  background: var(--cor-borda);
+}
+
+meter::-webkit-meter-bar {
+  height: 10px;
+  border: none;
+  border-radius: var(--raio-total);
+  background: var(--cor-borda);
+}
+
+meter::-webkit-meter-optimum-value        { background: var(--cor-ok);     border-radius: var(--raio-total); }
+meter::-webkit-meter-suboptimum-value     { background: var(--cor-alerta); border-radius: var(--raio-total); }
+meter::-webkit-meter-even-less-good-value { background: var(--cor-erro);   border-radius: var(--raio-total); }
+
+meter::-moz-meter-bar                              { border-radius: var(--raio-total); }
+meter:-moz-meter-optimum::-moz-meter-bar           { background: var(--cor-ok); }
+meter:-moz-meter-sub-optimum::-moz-meter-bar       { background: var(--cor-alerta); }
+meter:-moz-meter-sub-sub-optimum::-moz-meter-bar   { background: var(--cor-erro); }
+
+/* <progress> = barra de PROGRESSO (metas, parcelas pagas) */
+progress {
+  display: block;
+  width: 100%;
+  height: 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  border-radius: var(--raio-total);
+  background: var(--cor-borda);
+  overflow: hidden;
+}
+
+progress::-webkit-progress-bar   { background: var(--cor-borda); border-radius: var(--raio-total); }
+progress::-webkit-progress-value { background: var(--cor-marca); border-radius: var(--raio-total); }
+progress::-moz-progress-bar      { background: var(--cor-marca); border-radius: var(--raio-total); }
+
+/* Texto em cima da barra: nome à esquerda, valor à direita */
+.barra-legenda {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espaco-2);
+  margin-bottom: var(--espaco-2);
+  font-size: var(--texto-sm);
+}
+
+.barra-legenda > :last-child {
+  color: var(--cor-texto-suave);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.barra-nota {
+  margin-top: var(--espaco-2);
+  font-size: var(--texto-xs);
+  color: var(--cor-texto-suave);
+}
+
+
+/* ---------- 9. CORES DAS CATEGORIAS ---------- */
+/* A classe só define --cor-cat; a .bolinha (e o que mais precisar) usa essa cor */
+
+.cat-moradia     { --cor-cat: var(--cat-moradia); }
+.cat-alimentacao { --cor-cat: var(--cat-alimentacao); }
+.cat-compras     { --cor-cat: var(--cat-compras); }
+.cat-transporte  { --cor-cat: var(--cat-transporte); }
+.cat-lazer       { --cor-cat: var(--cat-lazer); }
+.cat-saude       { --cor-cat: var(--cat-saude); }
+.cat-salario     { --cor-cat: var(--cat-salario); }
+.cat-extra       { --cor-cat: var(--cat-extra); }
+
+.bolinha {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--cor-cat, var(--cor-texto-suave));
+}
+
+/* Nome de categoria com bolinha: <span class="categoria-rotulo cat-lazer"> */
+.categoria-rotulo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaco-2);
+}
+
+
+/* ---------- 10. TABELA (rola para o lado no celular, Aula 10) ---------- */
+
+.tabela-wrap {
+  overflow-x: auto;
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-g);
+  box-shadow: var(--sombra-card);
+}
+
+.tabela {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  font-size: var(--texto-sm);
+}
+
+.tabela caption {
+  padding: var(--espaco-4);
+  text-align: left;
+  font-weight: 700;
+  color: var(--cor-titulo);
+}
+
+.tabela th,
+.tabela td {
+  padding: var(--espaco-3) var(--espaco-4);
+  text-align: left;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.tabela thead th {
+  background-color: var(--cor-fundo-suave);
+  color: var(--cor-texto-suave);
+  font-size: var(--texto-xs);
+}
+
+.tabela tfoot th,
+.tabela tfoot td {
+  background-color: var(--cor-fundo-suave);
+  font-weight: 700;
+}
+
+.tabela .coluna-valor {
+  text-align: right;
+}
+
+/* Valores em dinheiro alinhados */
+.valor {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+
+/* ---------- 11. AVISOS ---------- */
+
+.aviso {
+  padding: var(--espaco-3) var(--espaco-4);
+  border-radius: var(--raio-m);
+  border-left: 4px solid var(--cor-marca);
+  background-color: var(--cor-ok-fundo);
+  color: var(--cor-ok-texto);
+  font-size: var(--texto-sm);
+}
+
+.aviso-alerta {
+  border-left-color: var(--cor-alerta);
+  background-color: var(--cor-alerta-fundo);
+  color: var(--cor-alerta-texto);
+}
+
+
+/* ==========================================================================
+   TELAS MAIORES
+   ========================================================================== */
+
+@media (min-width: 600px) {
+  .grade-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-acoes {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .painel-form summary,
+  .painel-form form {
+    padding: var(--espaco-4) var(--espaco-5);
+  }
+}
+
+@media (min-width: 768px) {
+  .barraverde {
+    padding: var(--espaco-3) 36px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .grade-form {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContaAí - Controle Financeiro</title>
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/inicio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- barra verde -->
+    <header class="barraverde">
+        <div class="esquerda-barra">
+            <a href="#" class="logo-link">
+                <div class="logo-box">
+                    <span class="logo-conta">Conta</span>
+                    <div class="logo-linha-ai">
+                        <span class="logo-ai">Aí</span>
+                        <img src="../../assets/img/icone.svg" alt="Símbolo" class="logo-icone">
+                    </div>
+                </div>
+            </a>
+
+            <nav class="linksbarra">
+                <a href="#recursos">Opções & Funcionalidades</a>
+                <a href="#sobre">Como Funciona</a>
+                <a href="#perguntas">Perguntas</a>
+            </nav>
+        </div>
+
+        <div class="acoes">
+            <a href="pages/login.html" class="btn-entrar">Entrar &#9662;</a>
+        </div>
+    </header>
+
+    <!--hero banner-->
+
+    <section class="hero-banner">
+        <div class="hero-conteudo">
+            <h1>
+                Planejamento <span class="texto-verde">simples</span>,<br>
+                rotina financeira sem<br>
+                <span class="texto-verde">estresse</span>
+            </h1>
+
+            <div class="linha-destaque"></div>
+
+            <p class="hero-subtitulo">
+                <span class="texto-verde">Registre</span> receitas e despesas, 
+                <span class="texto-verde">acompanhe</span> gastos por categoria e 
+                <span class="texto-verde">planeje</span> suas metas em um só lugar.
+            </p>
+
+            <div class="hero-botoes">
+                <a href="pages/login.html" class="btn-primario">Criar meu perfil</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!--Main-->
+     
+    <main>
+        <section id="recursos">
+            <h2>O que você pode fazer na plataforma</h2>
+            <p class="sub-secao">Conheça as ferramentas disponíveis para gerenciar seu dinheiro:</p>
+
+            <div class="cards-grid">
+                <article class="card">
+                    <h3>1. Lançamentos e Categorias</h3>
+                    <p>Registre entradas e saídas diárias com status de pagamento e acompanhe limites de gastos por categoria em tempo real.</p>
+                </article>
+
+                <article class="card">
+                    <h3>2. Dashboards e Relatórios</h3>
+                    <p>Visualize gráficos interativos da evolução do seu saldo e da distribuição de despesas para entender seus hábitos de consumo.</p>
+                </article>
+
+                <article class="card">
+                    <h3>3. Metas de Economia</h3>
+                    <p>Defina objetivos financeiros e prazos com uma barra de progresso calculada dinamicamente pelo que sobra no mês.</p>
+                </article>
+
+                <article class="card">
+                    <h3>4. Contas Fixas e Parcelamentos</h3>
+                    <p>Receba alertas visuais de contas recorrentes a vencer e controle a projeção de compras parceladas nos próximos meses.  </p>
+                </article>
+            </div>
+        </section>
+
+        <section id="sobre" class="card-sobre">
+            <h2>Por que controlar seus gastos?</h2>
+            <p>Com um bom planejamento financeiro, você consegue evitar dívidas, criar uma reserva de emergência e alcançar seus objetivos de longo prazo.</p>
+        </section>
+<section id="como-funciona" class="secao-passos">
+<hr>
+<br><br><br>
+            <h2 class="titulo-sessao">Como funciona</h2>
+            <div class="passos-grid">
+                <div class="passo-item">
+                    <div class="passo-numero">1</div>
+                    <h3 class="passo-titulo">Crie seu perfil local</h3>
+                    <p class="passo-texto">Nome, e-mail e senha. Não pedimos dados do banco nem do cartão.</p>
+                </div>
+                <div class="passo-item">
+                    <div class="passo-numero">2</div>
+                    <h3 class="passo-titulo">Registre o que entra e o que sai</h3>
+                    <p class="passo-texto">Salário, mercado, aluguel, parcelas: cada um na sua categoria.</p>
+                </div>
+                <div class="passo-item">
+                    <div class="passo-numero">3</div>
+                    <h3 class="passo-titulo">Acompanhe o painel</h3>
+                    <p class="passo-texto">Gráficos, limites e metas se atualizam a cada lançamento.</p>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="perguntas" class="secao-faq">
+          <hr>
+<br><br><br><br>
+            <div class="faq-container">
+                <h2 class="faq-titulo">Perguntas frequentes</h2>
+                <br><br>
+                <div class="faq-lista">
+                    <div class="faq-item">
+                        <h4 class="faq-pergunta">Preciso conectar minha conta do banco?</h4>
+                        <p class="faq-resposta">Não. Você mesmo registra receitas e despesas; o ContaAí não acessa banco nem cartão.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="faq-pergunta">Onde ficam os meus dados?</h4>
+                        <p class="faq-resposta">No armazenamento do próprio navegador (localStorage). Nada é enviado para servidores externos.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="faq-pergunta">Posso criar minhas próprias categorias?</h4>
+                        <p class="faq-resposta">Sim. Você pode personalizar os nomes dos grupos de despesas e definir um teto mensal para cada um.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- rodapé -->
+<footer class="rodape">
+  <div class="rodape-linha">
+    <!--esquerdi-->
+    <div class="rodape-esquerda">
+        <!--logo-->
+      <div class="logo-box-rodape">
+        <span class="logo-conta-rodape">Conta</span>
+        <div class="logo-linha-ai-rodape">
+          <span class="logo-ai-rodape">Aí</span>
+          <img src="../../assets/img/icone.svg" alt="Símbolo" class="logo-icone-rodape">
+        </div>
+      </div>
+
+
+      <div class="rodape-redes">
+        <a class="icone-rede" title="Instagram">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+          </svg>
+        </a>
+        <a class="icone-rede" title="Facebook">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/>
+          </svg>
+        </a>
+        <a class="icone-rede" title="X">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="linha-vertical-rodape"></div>
+
+      <!--textinho do rodapé-->
+      <div class="rodape-info-projeto">
+        <span class="grupo-destaque">Projeto Acadêmico PUCCAMPINAS - Controle de Gastos</span>
+      </div>
+    </div>
+
+    <!--direita-->
+
+    <div class="rodape-direita">
+      <span class="copyright">© Todos os direitos reservados.</span>
+      <a class="link-termos">Termos de Uso e Privacidade</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

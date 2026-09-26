@@ -1,0 +1,292 @@
+/* ==========================================================================
+   PAINEL.CSS — Layout das telas internas (arquivo COMPARTILHADO)
+   --------------------------------------------------------------------------
+   Usado por: dashboard, lançamentos, categorias, contas, parcelamentos, metas.
+   Não edite na sua branch.
+
+   Celular:                        Desktop (≥ 960px):
+   ┌─────────────────┐             ┌──────────────────────────────┐
+   │  barra verde    │             │         barra verde          │
+   ├─────────────────┤             ├─────────┬────────────────────┤
+   │    conteúdo     │             │  menu   │      conteúdo      │
+   └─────────────────┘             └─────────┴────────────────────┘
+   No celular o menu vira uma gaveta aberta pelo botão ☰ (scripts/menu.js).
+   ========================================================================== */
+
+
+/* ---------- Grid da página ---------- */
+
+.painel {
+  display: grid;
+  grid-template-areas:
+    "topo"
+    "conteudo";
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+  background-color: var(--cor-fundo-suave);
+}
+
+.topo {
+  grid-area: topo;
+}
+
+
+/* ---------- Lado direito da barra verde: usuário + botão ☰ ---------- */
+
+.topo-direita {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-3);
+}
+
+.topo-saudacao {
+  display: none;                 /* no celular só aparece o avatar */
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-botao);
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--cor-titulo);
+  color: var(--cor-marca);
+  font-weight: 700;
+}
+
+.botao-menu {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(17, 24, 39, 0.25);
+  border-radius: var(--raio-m);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* As 3 barrinhas do ☰ desenhadas com CSS */
+.botao-menu-icone,
+.botao-menu-icone::before,
+.botao-menu-icone::after {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--cor-texto-botao);
+  border-radius: 2px;
+  transition: transform 0.2s ease;
+}
+
+.botao-menu-icone {
+  position: relative;
+}
+
+.botao-menu-icone::before,
+.botao-menu-icone::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.botao-menu-icone::before { top: -6px; }
+.botao-menu-icone::after  { top: 6px; }
+
+/* Menu aberto: as barrinhas viram "X" */
+.botao-menu[aria-expanded="true"] .botao-menu-icone {
+  background-color: transparent;
+}
+
+.botao-menu[aria-expanded="true"] .botao-menu-icone::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.botao-menu[aria-expanded="true"] .botao-menu-icone::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+
+/* ---------- Menu lateral ---------- */
+
+/* Celular: gaveta escondida à esquerda */
+.menu {
+  position: fixed;
+  top: var(--altura-topo);
+  left: 0;
+  bottom: 0;
+  z-index: 900;
+  width: min(85vw, 300px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+  padding: var(--espaco-4);
+  background-color: var(--cor-fundo);
+  border-right: 1px solid var(--cor-borda);
+  overflow-y: auto;
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition: transform 0.25s ease, visibility 0.25s;
+}
+
+/* Classe colocada pelo menu.js quando o botão ☰ é clicado */
+.menu.menu-aberto {
+  transform: translateX(0);
+  visibility: visible;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.25);
+}
+
+.menu-lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-3);
+  padding: var(--espaco-3);
+  border-radius: var(--raio-m);
+  color: var(--cor-texto-suave);
+  font-size: var(--texto-sm);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.menu-link svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.menu-link:hover {
+  background-color: var(--cor-fundo-suave);
+  color: var(--cor-titulo);
+}
+
+/* Página atual: no HTML, o link dela tem aria-current="page" */
+.menu-link[aria-current="page"] {
+  background-color: var(--cor-marca-clara);
+  color: var(--cor-titulo);
+  font-weight: 700;
+  box-shadow: inset 3px 0 0 var(--cor-marca);
+}
+
+.menu-link[aria-current="page"] svg {
+  color: var(--cor-marca-texto);
+}
+
+.menu-rodape {
+  margin-top: auto;
+  padding-top: var(--espaco-4);
+  border-top: 1px solid var(--cor-borda);
+}
+
+
+/* ---------- Área de conteúdo ---------- */
+
+.conteudo {
+  grid-area: conteudo;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-5);
+  width: 100%;
+  max-width: var(--largura-max);
+  min-width: 0;                  /* impede que tabelas largas estourem o grid */
+  margin: 0 auto;
+  padding: var(--espaco-5) var(--espaco-4) var(--espaco-8);
+}
+
+/* Título da página + subtítulo (primeiro bloco dentro de .conteudo) */
+.pagina-cabecalho {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+}
+
+.pagina-cabecalho h1 {
+  font-size: var(--texto-2xl);
+}
+
+.pagina-cabecalho h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin-top: var(--espaco-2);
+  background-color: var(--cor-marca);
+  border-radius: 2px;
+}
+
+.pagina-cabecalho p {
+  max-width: 38rem;
+  color: var(--cor-texto-suave);
+  font-size: var(--texto-sm);
+}
+
+/* Título de uma seção dentro da página */
+.secao {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+}
+
+.secao-titulo {
+  font-size: var(--texto-lg);
+}
+
+
+/* ==========================================================================
+   TELAS MAIORES
+   ========================================================================== */
+
+@media (min-width: 600px) {
+  .topo-saudacao {
+    display: block;
+  }
+
+  .conteudo {
+    padding: var(--espaco-6) var(--espaco-5) var(--espaco-8);
+  }
+
+  .pagina-cabecalho {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+/* Desktop: o menu sai da gaveta e vira coluna fixa */
+@media (min-width: 960px) {
+  .painel {
+    grid-template-areas:
+      "topo  topo"
+      "menu  conteudo";
+    grid-template-columns: var(--largura-menu) 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .botao-menu {
+    display: none;
+  }
+
+  .menu {
+    grid-area: menu;
+    position: sticky;
+    top: var(--altura-topo);
+    height: calc(100vh - var(--altura-topo));
+    width: auto;
+    transform: none;
+    visibility: visible;
+    box-shadow: none;
+  }
+
+  .conteudo {
+    padding: var(--espaco-6) var(--espaco-6) var(--espaco-8);
+  }
+
+  .pagina-cabecalho h1 {
+    font-size: var(--texto-3xl);
+  }
+}

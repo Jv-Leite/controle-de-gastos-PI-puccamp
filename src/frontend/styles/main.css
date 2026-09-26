@@ -1,0 +1,122 @@
+/* ==========================================================================
+   MAIN.CSS — Reset e estilos globais (arquivo COMPARTILHADO)
+   --------------------------------------------------------------------------
+   Vale para TODAS as páginas: tela inicial, login e painel.
+   Não edite na sua branch.
+
+   Mobile first: o CSS sem @media é o do celular.
+   Telas maiores usam @media (min-width: ...).
+   Breakpoints do grupo: 600px · 768px · 960px · 1200px
+   ========================================================================== */
+
+
+/* ---------- Reset ---------- */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* O atributo HTML "hidden" sempre esconde, mesmo com display: flex na classe */
+[hidden] {
+  display: none !important;
+}
+
+
+/* ---------- Base ---------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fonte);
+  font-size: var(--texto-base);
+  line-height: 1.5;
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--cor-titulo);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--cor-marca-texto);
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* Imagens responsivas (Aula 10) */
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Campos e botões usam a mesma fonte do site */
+input,
+select,
+textarea,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+
+/* ---------- Acessibilidade ---------- */
+
+/* Foco visível para quem navega pelo teclado */
+:focus-visible {
+  outline: 3px solid var(--cor-titulo);
+  outline-offset: 2px;
+}
+
+/* Esconde da tela, mas o leitor de tela continua lendo */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Link "Pular para o conteúdo": aparece só quando recebe foco pelo Tab */
+.pular-link {
+  position: absolute;
+  top: -100px;
+  left: var(--espaco-4);
+  z-index: 2000;
+  padding: var(--espaco-2) var(--espaco-4);
+  background-color: var(--cor-titulo);
+  color: var(--cor-branco);
+  border-radius: var(--raio-m);
+}
+
+.pular-link:focus {
+  top: var(--espaco-2);
+}
+
+/* Respeita quem prefere menos animação */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

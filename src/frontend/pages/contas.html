@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contas Fixas | ContaAí</title>
+  <meta name="description" content="Gerencie suas despesas e receitas recorrentes mensais.">
+
+  <link rel="icon" href="../../../assets/img/icone.svg" type="image/svg+xml">
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS compartilhado do projeto -->
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/components.css">
+  <link rel="stylesheet" href="../styles/painel.css">
+
+  <!-- da página -->
+  <link rel="stylesheet" href="../styles/contas.css">
+</head>
+
+<body class="painel">
+  <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- barra verde -->
+  <header class="barraverde topo">
+    <a href="dashboard.html" class="logo-link" aria-label="ContaAí: ir para a visão geral">
+      <div class="logo-box">
+        <span class="logo-conta">Conta</span>
+        <div class="logo-linha-ai">
+          <span class="logo-ai">Aí</span>
+          <img src="../../../assets/img/icone.svg" alt="" class="logo-icone" width="22" height="25">
+        </div>
+      </div>
+    </a>
+
+    <div class="topo-direita">
+      <p class="topo-saudacao">Olá, <strong>Visitante</strong></p>
+      <span class="avatar" aria-hidden="true">V</span>
+
+      <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="botao-menu-icone" aria-hidden="true"></span>
+        <span class="sr-only">Abrir menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- menu lateral padrão  -->
+  <nav class="menu" id="menu-principal" aria-label="Menu principal">
+    <ul class="menu-lista">
+      <li>
+        <a class="menu-link" href="dashboard.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+          Visão geral
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="lancamentos.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20V4M3 8l4-4 4 4M17 4v16M13 16l4 4 4-4"/></svg>
+          Lançamentos
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="categorias.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
+          Categorias e limites
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="contas.html" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 15h3"/></svg>
+          Contas fixas
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="parcelamentos.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg>
+          Parcelamentos
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="metas.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+          Metas
+        </a>
+      </li>
+    </ul>
+
+    <div class="menu-rodape">
+      <a class="menu-link" href="../index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+        Sair do perfil
+      </a>
+    </div>
+  </nav>
+
+  <main class="conteudo" id="conteudo">
+    <header class="pagina-cabecalho">
+      <div>
+        <h1>Contas Fixas</h1>
+        <p>Gerencie suas despesas e receitas recorrentes mensais</p>
+      </div>
+      <button class="btn-novo" type="button">
+        <i class="fa-solid fa-plus"></i> Nova Conta Fixa
+      </button>
+    </header>
+
+    <!-- resumo do mes -->
+    <section class="summary-cards">
+      <div class="card-summary">
+        <span class="card-title">Total de Contas Fixas</span>
+        <span class="card-value text-warning">R$ 2.000,00</span>
+        <span class="card-subtitle">4 despesas cadastradas</span>
+      </div>
+      <div class="card-summary">
+        <span class="card-title">Pagas este mês</span>
+        <span class="card-value text-success">R$ 1.200,00</span>
+        <span class="card-subtitle">1 de 4 concluídas</span>
+      </div>
+      <div class="card-summary">
+        <span class="card-title">Pendentes</span>
+        <span class="card-value text-danger">R$ 800,00</span>
+        <span class="card-subtitle">3 prestes a vencer</span>
+      </div>
+    </section>
+
+    <!-- lista de contas -->
+    <section class="container-list">
+      <h2>Suas Contas Recorrentes</h2>
+      
+      <ul class="fixed-accounts-list">
+        <li class="account-item">
+          <div class="account-info">
+            <div class="account-icon category-housing">
+              <i class="fa-solid fa-house"></i>
+            </div>
+            <div class="account-details">
+              <span class="account-name">Aluguel</span>
+              <span class="account-category">Vence todo dia 10</span>
+            </div>
+          </div>
+          
+          <div class="account-actions-wrapper">
+            <span class="account-amount text-success">R$ 1.200,00</span>
+            
+            <div class="hover-actions-dropdown">
+              <button class="btn-more-actions" aria-label="Opções">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </button>
+              <div class="dropdown-menu">
+                <button class="dropdown-item"><i class="fa-solid fa-pen-to-square"></i> Modificar</button>
+                <button class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Tirar</button>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="account-item">
+          <div class="account-info">
+            <div class="account-icon category-services">
+              <i class="fa-solid fa-utensils"></i>
+            </div>
+            <div class="account-details">
+              <span class="account-name">Alimentação</span>
+              <span class="account-category">Vence todo dia 15</span>
+            </div>
+          </div>
+          
+          <div class="account-actions-wrapper">
+            <span class="account-amount text-danger">R$ 150,00</span>
+            
+            <div class="hover-actions-dropdown">
+              <button class="btn-more-actions" aria-label="Opções">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </button>
+              <div class="dropdown-menu">
+                <button class="dropdown-item"><i class="fa-solid fa-pen-to-square"></i> Modificar</button>
+                <button class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Tirar</button>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="account-item">
+          <div class="account-info">
+            <div class="account-icon category-health">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <div class="account-details">
+              <span class="account-name">Saúde</span>
+              <span class="account-category">Vence todo dia 20</span>
+            </div>
+          </div>
+          
+          <div class="account-actions-wrapper">
+            <span class="account-amount text-danger">R$ 450,00</span>
+            
+            <div class="hover-actions-dropdown">
+              <button class="btn-more-actions" aria-label="Opções">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </button>
+              <div class="dropdown-menu">
+                <button class="dropdown-item"><i class="fa-solid fa-pen-to-square"></i> Modificar</button>
+                <button class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Tirar</button>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="account-item">
+          <div class="account-info">
+            <div class="account-icon category-lifestyle">
+              <i class="fa-solid fa-car"></i>
+            </div>
+            <div class="account-details">
+              <span class="account-name">Transporte</span>
+              <span class="account-category">Vence todo dia 25</span>
+            </div>
+          </div>
+
+          <div class="account-actions-wrapper">
+            <span class="account-amount text-danger">R$ 200,00</span>
+
+            <div class="hover-actions-dropdown">
+              <button class="btn-more-actions" aria-label="Opções">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </button>
+              <div class="dropdown-menu">
+                <button class="dropdown-item"><i class="fa-solid fa-pen-to-square"></i> Modificar</button>
+                <button class="dropdown-item text-danger"><i class="fa-solid fa-trash"></i> Tirar</button>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="../scripts/menu.js"></script>
+</body>
+</html>

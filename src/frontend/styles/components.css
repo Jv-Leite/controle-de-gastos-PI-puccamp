@@ -1,27 +1,3 @@
-/* ==========================================================================
-   COMPONENTS.CSS — Blocos reutilizáveis (arquivo COMPARTILHADO)
-   --------------------------------------------------------------------------
-   Os nomes das classes vêm da tela inicial (.barraverde, .logo-box,
-   .btn-primario, .card...). Use estas classes na sua página em vez de
-   criar botões, cards e campos do zero.
-
-    1. Logo
-    2. Barra verde (cabeçalho)
-    3. Destaques de texto
-    4. Botões
-    5. Card
-    6. Formulários
-    7. Etiquetas de status
-    8. Barras de limite e de progresso
-    9. Cores das categorias
-   10. Tabela
-   11. Avisos
-   ========================================================================== */
-
-
-/* ---------- 1. LOGO ---------- */
-/* <div class="logo-box"> Conta / Aí + ícone </div> */
-
 .logo-link {
   text-decoration: none;
 }
@@ -52,7 +28,6 @@
   color: var(--cor-branco);
 }
 
-/* Ícone branco (o filtro transforma o verde do SVG em branco) */
 .logo-icone {
   height: 22px;
   width: auto;
@@ -60,13 +35,9 @@
   filter: brightness(0) invert(1);
 }
 
-/* Variação para fundo escuro (rodapé): "Conta" também fica branco */
 .logo-rodape .logo-conta {
   color: var(--cor-branco);
 }
-
-
-/* ---------- 2. BARRA VERDE (cabeçalho de todas as páginas) ---------- */
 
 .barraverde {
   position: sticky;
@@ -83,15 +54,10 @@
   box-shadow: var(--sombra-barra);
 }
 
-
-/* ---------- 3. DESTAQUES DE TEXTO ---------- */
-
-/* Palavra em verde (usar só sobre fundo escuro, como no hero) */
 .texto-verde {
   color: var(--cor-marca);
 }
 
-/* Traço verde curto embaixo de títulos */
 .linha-destaque {
   width: 60px;
   height: 4px;
@@ -100,16 +66,12 @@
   border-radius: 2px;
 }
 
-
-/* ---------- 4. BOTÕES ---------- */
-
-/* Botão principal verde (igual ao "Criar meu perfil") */
 .btn-primario {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--espaco-2);
-  min-height: 44px;              /* área mínima de toque no celular */
+  min-height: 44px;
   padding: var(--espaco-3) var(--espaco-5);
   border: none;
   border-radius: var(--raio-m);
@@ -127,7 +89,6 @@
   transform: translateY(-2px);
 }
 
-/* Botão transparente para fundo ESCURO (hero) */
 .btn-secundario {
   display: inline-flex;
   align-items: center;
@@ -150,7 +111,6 @@
   border-color: var(--cor-branco);
 }
 
-/* Botão com contorno para fundo CLARO (ações secundárias no painel) */
 .btn-contorno {
   display: inline-flex;
   align-items: center;
@@ -173,7 +133,6 @@
   background-color: var(--cor-marca-clara);
 }
 
-/* Link pequeno de ação ("Ver todos", "Ajustar") */
 .link-acao {
   flex-shrink: 0;
   white-space: nowrap;
@@ -186,9 +145,6 @@
 .link-acao:hover {
   text-decoration: underline;
 }
-
-
-/* ---------- 5. CARD ---------- */
 
 .card {
   background-color: var(--cor-fundo);
@@ -210,17 +166,12 @@
   line-height: 1.5;
 }
 
-/* Grade de cards que se ajusta sozinha (Aula 10: auto-fit + minmax) */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: var(--espaco-5);
 }
 
-
-/* ---------- 6. FORMULÁRIOS ---------- */
-
-/* Um campo = <label> + <input> (+ dica) empilhados */
 .campo {
   display: flex;
   flex-direction: column;
@@ -264,12 +215,10 @@
   background-color: var(--cor-marca-clara);
 }
 
-/* Borda vermelha só depois que a pessoa mexeu no campo e ele ficou inválido */
 .campo input:user-invalid {
   border-color: var(--cor-erro);
 }
 
-/* Grade dos formulários: 1 coluna no celular, mais em telas maiores */
 .grade-form {
   display: grid;
   grid-template-columns: 1fr;
@@ -282,7 +231,6 @@
   gap: var(--espaco-3);
 }
 
-/* Grupo de opções (radio) com visual de botões lado a lado */
 .grupo-opcoes {
   border: none;
   display: flex;
@@ -314,7 +262,6 @@
   cursor: pointer;
 }
 
-/* O label logo depois do radio marcado fica "selecionado" */
 .opcoes input:checked + label {
   background-color: var(--cor-marca);
   color: var(--cor-texto-botao);
@@ -326,7 +273,6 @@
   outline-offset: 1px;
 }
 
-/* Painel "Novo ..." com <details> + <summary> (abre e fecha sem JavaScript) */
 .painel-form {
   background-color: var(--cor-fundo);
   border: 1px solid var(--cor-borda);
@@ -349,7 +295,6 @@
   display: none;
 }
 
-/* Ícone "+" que gira e vira "×" quando abre */
 .painel-form summary::before {
   content: "+";
   display: grid;
@@ -379,9 +324,6 @@
   padding: var(--espaco-4);
 }
 
-
-/* ---------- 7. ETIQUETAS DE STATUS ---------- */
-
 .etiqueta {
   display: inline-flex;
   align-items: center;
@@ -399,17 +341,6 @@
 .etiqueta-alerta { background-color: var(--cor-alerta-fundo); color: var(--cor-alerta-texto); border-color: transparent; }
 .etiqueta-erro   { background-color: var(--cor-erro-fundo);   color: var(--cor-erro-texto);   border-color: transparent; }
 
-
-/* ---------- 8. BARRAS ---------- */
-
-/*
-  <meter> = barra de LIMITE. O navegador escolhe a cor sozinho pelos atributos:
-    <meter min="0" max="LIMITE" low="80% do limite" high="LIMITE - 0.01"
-           optimum="0" value="GASTO">
-    abaixo de low       → verde    (dentro do planejado)
-    entre low e high    → amarelo  (perto do limite)
-    acima de high       → vermelho (estourou)
-*/
 meter {
   display: block;
   width: 100%;
@@ -437,7 +368,6 @@ meter:-moz-meter-optimum::-moz-meter-bar           { background: var(--cor-ok); 
 meter:-moz-meter-sub-optimum::-moz-meter-bar       { background: var(--cor-alerta); }
 meter:-moz-meter-sub-sub-optimum::-moz-meter-bar   { background: var(--cor-erro); }
 
-/* <progress> = barra de PROGRESSO (metas, parcelas pagas) */
 progress {
   display: block;
   width: 100%;
@@ -454,7 +384,6 @@ progress::-webkit-progress-bar   { background: var(--cor-borda); border-radius: 
 progress::-webkit-progress-value { background: var(--cor-marca); border-radius: var(--raio-total); }
 progress::-moz-progress-bar      { background: var(--cor-marca); border-radius: var(--raio-total); }
 
-/* Texto em cima da barra: nome à esquerda, valor à direita */
 .barra-legenda {
   display: flex;
   justify-content: space-between;
@@ -475,10 +404,6 @@ progress::-moz-progress-bar      { background: var(--cor-marca); border-radius: 
   color: var(--cor-texto-suave);
 }
 
-
-/* ---------- 9. CORES DAS CATEGORIAS ---------- */
-/* A classe só define --cor-cat; a .bolinha (e o que mais precisar) usa essa cor */
-
 .cat-moradia     { --cor-cat: var(--cat-moradia); }
 .cat-alimentacao { --cor-cat: var(--cat-alimentacao); }
 .cat-compras     { --cor-cat: var(--cat-compras); }
@@ -497,15 +422,11 @@ progress::-moz-progress-bar      { background: var(--cor-marca); border-radius: 
   background-color: var(--cor-cat, var(--cor-texto-suave));
 }
 
-/* Nome de categoria com bolinha: <span class="categoria-rotulo cat-lazer"> */
 .categoria-rotulo {
   display: inline-flex;
   align-items: center;
   gap: var(--espaco-2);
 }
-
-
-/* ---------- 10. TABELA (rola para o lado no celular, Aula 10) ---------- */
 
 .tabela-wrap {
   overflow-x: auto;
@@ -552,15 +473,11 @@ progress::-moz-progress-bar      { background: var(--cor-marca); border-radius: 
   text-align: right;
 }
 
-/* Valores em dinheiro alinhados */
 .valor {
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
-
-
-/* ---------- 11. AVISOS ---------- */
 
 .aviso {
   padding: var(--espaco-3) var(--espaco-4);
@@ -576,11 +493,6 @@ progress::-moz-progress-bar      { background: var(--cor-marca); border-radius: 
   background-color: var(--cor-alerta-fundo);
   color: var(--cor-alerta-texto);
 }
-
-
-/* ==========================================================================
-   TELAS MAIORES
-   ========================================================================== */
 
 @media (min-width: 600px) {
   .grade-form {

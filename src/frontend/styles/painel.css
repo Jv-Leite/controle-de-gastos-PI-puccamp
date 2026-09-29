@@ -1,21 +1,3 @@
-/* ==========================================================================
-   PAINEL.CSS — Layout das telas internas (arquivo COMPARTILHADO)
-   --------------------------------------------------------------------------
-   Usado por: dashboard, lançamentos, categorias, contas, parcelamentos, metas.
-   Não edite na sua branch.
-
-   Celular:                        Desktop (≥ 960px):
-   ┌─────────────────┐             ┌──────────────────────────────┐
-   │  barra verde    │             │         barra verde          │
-   ├─────────────────┤             ├─────────┬────────────────────┤
-   │    conteúdo     │             │  menu   │      conteúdo      │
-   └─────────────────┘             └─────────┴────────────────────┘
-   No celular o menu vira uma gaveta aberta pelo botão ☰ (scripts/menu.js).
-   ========================================================================== */
-
-
-/* ---------- Grid da página ---------- */
-
 .painel {
   display: grid;
   grid-template-areas:
@@ -30,9 +12,6 @@
   grid-area: topo;
 }
 
-
-/* ---------- Lado direito da barra verde: usuário + botão ☰ ---------- */
-
 .topo-direita {
   display: flex;
   align-items: center;
@@ -40,7 +19,7 @@
 }
 
 .topo-saudacao {
-  display: none;                 /* no celular só aparece o avatar */
+  display: none;
   font-size: var(--texto-sm);
   color: var(--cor-texto-botao);
 }
@@ -67,7 +46,6 @@
   cursor: pointer;
 }
 
-/* As 3 barrinhas do ☰ desenhadas com CSS */
 .botao-menu-icone,
 .botao-menu-icone::before,
 .botao-menu-icone::after {
@@ -93,7 +71,6 @@
 .botao-menu-icone::before { top: -6px; }
 .botao-menu-icone::after  { top: 6px; }
 
-/* Menu aberto: as barrinhas viram "X" */
 .botao-menu[aria-expanded="true"] .botao-menu-icone {
   background-color: transparent;
 }
@@ -106,10 +83,6 @@
   transform: translateY(-6px) rotate(-45deg);
 }
 
-
-/* ---------- Menu lateral ---------- */
-
-/* Celular: gaveta escondida à esquerda */
 .menu {
   position: fixed;
   top: var(--altura-topo);
@@ -129,7 +102,6 @@
   transition: transform 0.25s ease, visibility 0.25s;
 }
 
-/* Classe colocada pelo menu.js quando o botão ☰ é clicado */
 .menu.menu-aberto {
   transform: translateX(0);
   visibility: visible;
@@ -165,7 +137,6 @@
   color: var(--cor-titulo);
 }
 
-/* Página atual: no HTML, o link dela tem aria-current="page" */
 .menu-link[aria-current="page"] {
   background-color: var(--cor-marca-clara);
   color: var(--cor-titulo);
@@ -183,9 +154,6 @@
   border-top: 1px solid var(--cor-borda);
 }
 
-
-/* ---------- Área de conteúdo ---------- */
-
 .conteudo {
   grid-area: conteudo;
   display: flex;
@@ -193,12 +161,11 @@
   gap: var(--espaco-5);
   width: 100%;
   max-width: var(--largura-max);
-  min-width: 0;                  /* impede que tabelas largas estourem o grid */
+  min-width: 0;
   margin: 0 auto;
   padding: var(--espaco-5) var(--espaco-4) var(--espaco-8);
 }
 
-/* Título da página + subtítulo (primeiro bloco dentro de .conteudo) */
 .pagina-cabecalho {
   display: flex;
   flex-direction: column;
@@ -225,7 +192,6 @@
   font-size: var(--texto-sm);
 }
 
-/* Título de uma seção dentro da página */
 .secao {
   display: flex;
   flex-direction: column;
@@ -235,11 +201,6 @@
 .secao-titulo {
   font-size: var(--texto-lg);
 }
-
-
-/* ==========================================================================
-   TELAS MAIORES
-   ========================================================================== */
 
 @media (min-width: 600px) {
   .topo-saudacao {
@@ -257,7 +218,6 @@
   }
 }
 
-/* Desktop: o menu sai da gaveta e vira coluna fixa */
 @media (min-width: 960px) {
   .painel {
     grid-template-areas:

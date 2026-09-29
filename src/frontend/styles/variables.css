@@ -1,53 +1,37 @@
-/* ==========================================================================
-   VARIABLES.CSS — Design system do ContaAí (arquivo COMPARTILHADO)
-   --------------------------------------------------------------------------
-   Todas as cores, fontes e medidas do site. Os valores foram tirados do
-   CSS da tela inicial, que o grupo escolheu como padrão.
-
-   REGRAS DO GRUPO
-   - Nas páginas, nunca escreva uma cor em hexadecimal: use var(--nome).
-   - Não edite este arquivo na sua branch. Precisa de uma cor nova?
-     Combine com o grupo e faça em uma branch "base/..." separada.
-   ========================================================================== */
-
 :root {
-  /* ---------- Marca ---------- */
-  --cor-marca: #00e676;            /* verde da barra, botões e destaques      */
-  --cor-marca-hover: #00c853;      /* verde do botão com o mouse em cima      */
-  --cor-marca-clara: #e6fcef;      /* fundo verde bem claro (item ativo, foco) */
-  --cor-marca-texto: #00753a;      /* verde escuro para TEXTO em fundo branco  */
-  --cor-destaque: #ffca28;         /* amarelo do botão "Entrar" e do rodapé    */
+  
+  --cor-marca: #00e676;
+  --cor-marca-hover: #00c853;
+  --cor-marca-clara: #e6fcef;
+  --cor-marca-texto: #00753a;
+  --cor-destaque: #ffca28; 
 
-  /* ---------- Textos ---------- */
-  --cor-titulo: #0f172a;           /* títulos                                  */
-  --cor-texto: #1e293b;            /* texto normal                             */
-  --cor-texto-medio: #475569;      /* parágrafos em blocos de destaque         */
-  --cor-texto-suave: #64748b;      /* subtítulos e textos de apoio             */
-  --cor-texto-botao: #111827;      /* texto dentro de botões verdes/amarelos   */
-  --cor-texto-claro: #cbd5e1;      /* texto sobre fundo escuro                 */
+  --cor-titulo: #0f172a;
+  --cor-texto: #1e293b;
+  --cor-texto-medio: #475569; 
+  --cor-texto-suave: #64748b;
+  --cor-texto-botao: #111827; 
+  --cor-texto-claro: #cbd5e1; 
   --cor-texto-claro-suave: #94a3b8;
 
-  /* ---------- Fundos e bordas ---------- */
-  --cor-branco: #ffffff;           /* texto sobre fundo escuro, ícones         */
-  --cor-fundo: #ffffff;            /* fundo das páginas                        */
-  --cor-fundo-suave: #f8fafc;      /* blocos em destaque, menu lateral         */
-  --cor-fundo-escuro: #1e2530;     /* rodapé                                   */
-  --cor-borda: #e2e8f0;            /* bordas de cards, inputs e divisórias     */
+  --cor-branco: #ffffff;
+  --cor-fundo: #ffffff;
+  --cor-fundo-suave: #f8fafc; 
+  --cor-fundo-escuro: #1e2530; 
+  --cor-borda: #e2e8f0;
 
-  /* ---------- Status (limites, contas, etiquetas) ---------- */
-  --cor-ok: var(--cor-marca);      /* dentro do limite / pago                  */
+  --cor-ok: var(--cor-marca);
   --cor-ok-fundo: #dcfce7;
   --cor-ok-texto: #166534;
 
-  --cor-alerta: var(--cor-destaque); /* perto do limite / vence em breve       */
+  --cor-alerta: var(--cor-destaque);
   --cor-alerta-fundo: #fef9c3;
   --cor-alerta-texto: #854d0e;
 
-  --cor-erro: #ef4444;             /* limite estourado / conta vencida         */
+  --cor-erro: #ef4444; 
   --cor-erro-fundo: #fee2e2;
   --cor-erro-texto: #991b1b;
 
-  /* ---------- Cores das categorias (gráficos e bolinhas) ---------- */
   --cat-moradia: #1e293b;
   --cat-alimentacao: #00e676;
   --cat-compras: #6366f1;
@@ -57,39 +41,36 @@
   --cat-salario: #00c853;
   --cat-extra: #86efac;
 
-  /* ---------- Tipografia ---------- */
+ 
   --fonte: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 
-  --texto-xs: 0.75rem;    /* 12px */
-  --texto-sm: 0.875rem;   /* 14px */
-  --texto-base: 1rem;     /* 16px */
-  --texto-lg: 1.125rem;   /* 18px */
-  --texto-xl: 1.375rem;   /* 22px */
-  --texto-2xl: 1.75rem;   /* 28px */
-  --texto-3xl: 2.2rem;    /* 35px */
-  --texto-4xl: 3rem;      /* 48px */
+  --texto-xs: 0.75rem;  
+  --texto-sm: 0.875rem;
+  --texto-base: 1rem; 
+  --texto-lg: 1.125rem; 
+  --texto-xl: 1.375rem;
+  --texto-2xl: 1.75rem; 
+  --texto-3xl: 2.2rem;
+  --texto-4xl: 3rem;
 
-  /* ---------- Espaçamentos (de 4 em 4 px) ---------- */
-  --espaco-1: 0.25rem;    /*  4px */
-  --espaco-2: 0.5rem;     /*  8px */
-  --espaco-3: 0.75rem;    /* 12px */
-  --espaco-4: 1rem;       /* 16px */
-  --espaco-5: 1.5rem;     /* 24px */
-  --espaco-6: 2rem;       /* 32px */
-  --espaco-7: 3rem;       /* 48px */
-  --espaco-8: 4rem;       /* 64px */
+  --espaco-1: 0.25rem;
+  --espaco-2: 0.5rem; 
+  --espaco-3: 0.75rem; 
+  --espaco-4: 1rem;  
+  --espaco-5: 1.5rem; 
+  --espaco-6: 2rem; 
+  --espaco-7: 3rem; 
+  --espaco-8: 4rem; 
 
-  /* ---------- Bordas e sombras ---------- */
-  --raio-p: 6px;          /* botão "Entrar", etiquetas quadradas */
-  --raio-m: 8px;          /* botões e inputs                     */
-  --raio-g: 10px;         /* cards                               */
-  --raio-total: 999px;    /* pílulas e barras                    */
+  --raio-p: 6px; 
+  --raio-m: 8px;
+  --raio-g: 10px; 
+  --raio-total: 999px; 
 
   --sombra-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   --sombra-barra: 0 2px 10px rgba(0, 0, 0, 0.08);
 
-  /* ---------- Medidas de layout ---------- */
-  --largura-max: 1100px;  /* largura máxima do conteúdo (igual à tela inicial) */
-  --altura-topo: 64px;    /* altura da barra verde                             */
-  --largura-menu: 248px;  /* largura do menu lateral no desktop                */
+  --largura-max: 1100px;
+  --altura-topo: 64px; 
+  --largura-menu: 248px; 
 }

@@ -1,16 +1,3 @@
-/* ==========================================================================
-   MAIN.CSS — Reset e estilos globais (arquivo COMPARTILHADO)
-   --------------------------------------------------------------------------
-   Vale para TODAS as páginas: tela inicial, login e painel.
-   Não edite na sua branch.
-
-   Mobile first: o CSS sem @media é o do celular.
-   Telas maiores usam @media (min-width: ...).
-   Breakpoints do grupo: 600px · 768px · 960px · 1200px
-   ========================================================================== */
-
-
-/* ---------- Reset ---------- */
 
 *,
 *::before,
@@ -20,13 +7,9 @@
   box-sizing: border-box;
 }
 
-/* O atributo HTML "hidden" sempre esconde, mesmo com display: flex na classe */
 [hidden] {
   display: none !important;
 }
-
-
-/* ---------- Base ---------- */
 
 html {
   scroll-behavior: smooth;
@@ -58,7 +41,6 @@ ol {
   list-style: none;
 }
 
-/* Imagens responsivas (Aula 10) */
 img,
 svg {
   max-width: 100%;
@@ -66,7 +48,6 @@ svg {
   display: block;
 }
 
-/* Campos e botões usam a mesma fonte do site */
 input,
 select,
 textarea,
@@ -75,16 +56,11 @@ button {
   color: inherit;
 }
 
-
-/* ---------- Acessibilidade ---------- */
-
-/* Foco visível para quem navega pelo teclado */
 :focus-visible {
   outline: 3px solid var(--cor-titulo);
   outline-offset: 2px;
 }
 
-/* Esconde da tela, mas o leitor de tela continua lendo */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -94,7 +70,6 @@ button {
   white-space: nowrap;
 }
 
-/* Link "Pular para o conteúdo": aparece só quando recebe foco pelo Tab */
 .pular-link {
   position: absolute;
   top: -100px;
@@ -110,7 +85,6 @@ button {
   top: var(--espaco-2);
 }
 
-/* Respeita quem prefere menos animação */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

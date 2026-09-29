@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Compras parceladas | ContaAí</title>
+  <meta name="description" content="Cadastre compras parceladas e veja as parcelas futuras projetadas automaticamente nos próximos meses.">
+
+  <link rel="icon" href="../../../assets/img/icone.svg" type="image/svg+xml">
+
+  <!-- Fonte Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap">
+
+  <!-- CSS compartilhado: NÃO mude a ordem -->
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/components.css">
+  <link rel="stylesheet" href="../styles/painel.css">
+
+  <!-- CSS só da página de parcelamentos -->
+  <link rel="stylesheet" href="../styles/parcelamentos.css">
+</head>
+
+<body class="painel pagina-parcelamentos">
+  <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ================= BARRA VERDE (não editar) ================= -->
+  <header class="barraverde topo">
+    <a href="dashboard.html" class="logo-link" aria-label="ContaAí: ir para a visão geral">
+      <div class="logo-box">
+        <span class="logo-conta">Conta</span>
+        <div class="logo-linha-ai">
+          <span class="logo-ai">Aí</span>
+          <img src="../../../assets/img/icone.svg" alt="" class="logo-icone" width="22" height="25">
+        </div>
+      </div>
+    </a>
+
+    <div class="topo-direita">
+      <p class="topo-saudacao">Olá, <strong>Visitante</strong></p>
+      <span class="avatar" aria-hidden="true">V</span>
+
+      <!-- Botão ☰: só aparece no celular -->
+      <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="botao-menu-icone" aria-hidden="true"></span>
+        <span class="sr-only">Abrir menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= MENU LATERAL (não editar; só o aria-current) ================= -->
+  <nav class="menu" id="menu-principal" aria-label="Menu principal">
+    <ul class="menu-lista">
+      <li>
+        <a class="menu-link" href="dashboard.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+          Visão geral
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="lancamentos.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20V4M3 8l4-4 4 4M17 4v16M13 16l4 4 4-4"/></svg>
+          Lançamentos
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="categorias.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
+          Categorias e limites
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="contas.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 15h3"/></svg>
+          Contas fixas
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="parcelamentos.html" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg>
+          Parcelamentos
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="metas.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+          Metas
+        </a>
+      </li>
+    </ul>
+
+    <div class="menu-rodape">
+      <a class="menu-link" href="../index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+        Sair do perfil
+      </a>
+    </div>
+  </nav>
+
+  <!-- ================= CONTEÚDO DA PÁGINA ================= -->
+  <main class="conteudo" id="conteudo">
+
+    <header class="pagina-cabecalho">
+      <div>
+        <h1>Compras parceladas</h1>
+        <p>Ao cadastrar uma compra parcelada, cada parcela entra sozinha como despesa nos meses seguintes.</p>
+      </div>
+    </header>
+
+    <details class="painel-form">
+      <summary>Nova compra parcelada</summary>
+
+      <form action="#" method="post" data-prototipo>
+        <div class="grade-form">
+          <div class="campo">
+            <label for="parc-descricao">Descrição da compra</label>
+            <input type="text" id="parc-descricao" name="descricao" placeholder="Ex.: Celular" maxlength="40" required>
+          </div>
+
+          <div class="campo">
+            <label for="parc-total">Valor total (R$)</label>
+            <input type="number" id="parc-total" name="total" placeholder="0,00" min="0.01" step="0.01" inputmode="decimal" required>
+          </div>
+
+          <div class="campo">
+            <label for="parc-qtd">Número de parcelas</label>
+            <input type="number" id="parc-qtd" name="parcelas" value="10" min="2" max="48" inputmode="numeric" required>
+          </div>
+
+          <div class="campo">
+            <label for="parc-categoria">Categoria</label>
+            <select id="parc-categoria" name="categoria" required>
+              <option value="compras" selected>Compras</option>
+              <option value="moradia">Moradia</option>
+              <option value="transporte">Transporte</option>
+              <option value="lazer">Lazer</option>
+              <option value="saude">Saúde</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="parc-inicio">Mês da 1ª parcela</label>
+            <input type="month" id="parc-inicio" name="inicio" value="2026-10" required>
+          </div>
+
+          <div class="campo">
+            <label for="parc-dia">Dia da cobrança</label>
+            <input type="number" id="parc-dia" name="dia" value="15" min="1" max="28" inputmode="numeric" required>
+          </div>
+        </div>
+
+        <div class="grade-form-acoes">
+          <button class="btn-primario botao-bloco" type="submit">Gerar parcelas</button>
+        </div>
+      </form>
+    </details>
+
+    <!-- ===== Projeção: quanto já está comprometido nos próximos meses ===== -->
+    <section class="secao" aria-labelledby="titulo-projecao">
+      <h2 id="titulo-projecao" class="secao-titulo">Projeção dos próximos meses</h2>
+
+      <div class="tabela-wrap">
+        <table class="tabela tabela-projecao">
+          <caption>Parcelas já agendadas a partir de outubro de 2026</caption>
+          <thead>
+            <tr>
+              <th scope="col">Mês</th>
+              <th scope="col" class="coluna-valor">Notebook</th>
+              <th scope="col" class="coluna-valor">Tênis de corrida</th>
+              <th scope="col" class="coluna-valor">Total do mês</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Outubro/2026</th>
+              <td class="coluna-valor valor">R$ 400,00 <span class="parcela-numero">4/5</span></td>
+              <td class="coluna-valor valor">R$ 150,00 <span class="parcela-numero">2/3</span></td>
+              <td class="coluna-valor valor">R$ 550,00</td>
+            </tr>
+            <tr>
+              <th scope="row">Novembro/2026</th>
+              <td class="coluna-valor valor">R$ 400,00 <span class="parcela-numero">5/5</span></td>
+              <td class="coluna-valor valor">R$ 150,00 <span class="parcela-numero">3/3</span></td>
+              <td class="coluna-valor valor">R$ 550,00</td>
+            </tr>
+            <tr>
+              <th scope="row">Dezembro/2026</th>
+              <td class="coluna-valor">—</td>
+              <td class="coluna-valor">—</td>
+              <td class="coluna-valor"><span class="etiqueta etiqueta-ok">sem parcelas</span></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">Total agendado</th>
+              <td class="coluna-valor valor">R$ 800,00</td>
+              <td class="coluna-valor valor">R$ 300,00</td>
+              <td class="coluna-valor valor">R$ 1.100,00</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== Compras ===== -->
+    <section class="secao" aria-labelledby="titulo-compras">
+      <h2 id="titulo-compras" class="secao-titulo">Suas compras</h2>
+
+      <div class="grade-cartoes">
+        <article class="card compra cat-compras">
+          <div class="cartao-topo">
+            <div>
+              <h3>Notebook</h3>
+              <p class="cartao-subtitulo">R$ 2.000,00 em 5x de R$ 400,00 · Compras</p>
+            </div>
+            <span class="etiqueta etiqueta-ok">em dia</span>
+          </div>
+
+          <p class="barra-legenda"><span>3 de 5 parcelas pagas</span><span>Falta pagar R$ 800,00</span></p>
+          <progress max="5" value="3">3 de 5</progress>
+
+          <!-- <ol> porque a ordem das parcelas importa -->
+          <ol class="parcelas" aria-label="Parcelas do notebook">
+            <li class="parcela parcela-paga"><strong>1/5</strong><span>jul/26</span><span>paga</span></li>
+            <li class="parcela parcela-paga"><strong>2/5</strong><span>ago/26</span><span>paga</span></li>
+            <li class="parcela parcela-paga parcela-atual"><strong>3/5</strong><span>set/26</span><span>paga</span></li>
+            <li class="parcela"><strong>4/5</strong><span>out/26</span><span>prevista</span></li>
+            <li class="parcela"><strong>5/5</strong><span>nov/26</span><span>prevista</span></li>
+          </ol>
+        </article>
+
+        <article class="card compra cat-compras">
+          <div class="cartao-topo">
+            <div>
+              <h3>Tênis de corrida</h3>
+              <p class="cartao-subtitulo">R$ 450,00 em 3x de R$ 150,00 · Compras</p>
+            </div>
+            <span class="etiqueta etiqueta-erro">1 atrasada</span>
+          </div>
+
+          <p class="barra-legenda"><span>0 de 3 parcelas pagas</span><span>Falta pagar R$ 450,00</span></p>
+          <progress max="3" value="0">0 de 3</progress>
+
+          <ol class="parcelas" aria-label="Parcelas do tênis de corrida">
+            <li class="parcela parcela-atrasada parcela-atual"><strong>1/3</strong><span>set/26</span><span>atrasada</span></li>
+            <li class="parcela"><strong>2/3</strong><span>out/26</span><span>prevista</span></li>
+            <li class="parcela"><strong>3/3</strong><span>nov/26</span><span>prevista</span></li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JS compartilhado (menu do celular) -->
+  <script src="../scripts/menu.js"></script>
+</body>
+</html>

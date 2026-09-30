@@ -1,13 +1,3 @@
-/* ==========================================================================
-   CATEGORIAS.CSS — Estilos só da página "Categorias e limites"
-   --------------------------------------------------------------------------
-   Card, barra (<meter>), formulário e botão já vêm de components.css.
-   Aqui ficam só os detalhes desta página.
-   Mobile first: o CSS normal é o do celular.
-   ========================================================================== */
-
-
-/* ---------- Legenda "Como ler a barra" ---------- */
 
 .legenda-limite h2 {
   margin-bottom: var(--espaco-3);
@@ -28,7 +18,7 @@
   gap: var(--espaco-2);
 }
 
-/* Barrinha pequena: um trilho cinza com o preenchimento por cima */
+
 .amostra {
   position: relative;
   flex-shrink: 0;
@@ -39,7 +29,7 @@
   overflow: hidden;
 }
 
-/* O preenchimento é desenhado com ::after */
+
 .amostra::after {
   content: "";
   position: absolute;
@@ -53,7 +43,7 @@
 .amostra-cheia::after { width: 100%; }
 
 
-/* ---------- Card de categoria ---------- */
+
 
 .categoria {
   display: flex;
@@ -78,7 +68,7 @@
 }
 
 
-/* ---------- Resumo do orçamento ---------- */
+
 
 .resumo-orcamento {
   display: flex;
@@ -90,7 +80,7 @@
   font-size: var(--texto-base);
 }
 
-/* Celular: um número embaixo do outro */
+
 .resumo-numeros {
   display: grid;
   grid-template-columns: 1fr;
@@ -114,9 +104,7 @@
 }
 
 
-/* ==========================================================================
-   TELAS MAIORES
-   ========================================================================== */
+
 
 @media (min-width: 600px) {
   .legenda-limite ul {
@@ -125,7 +113,7 @@
     gap: var(--espaco-3) var(--espaco-5);
   }
 
-  /* Os 3 números lado a lado */
+  
   .resumo-numeros {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -141,16 +129,11 @@
 }
 
 
-/* ==========================================================================
-   AJUSTES SÓ DESTA PÁGINA (sobrescrevem a base sem mudar os arquivos do grupo)
-   ========================================================================== */
 
-/* Sem a barrinha verde embaixo do título "Categorias e limites" */
 .pagina-cabecalho h1::after {
   display: none;
 }
 
-/* "+" do "Nova categoria" em branco, em vez do escuro */
 .painel-form summary::before {
   color: var(--cor-branco);
 }

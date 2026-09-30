@@ -49,10 +49,10 @@ controle-de-gastos-PI-puccamp/
 
 | Funcionalidade | Branch | Arquivos | Responsável |
 |---|---|---|---|
-| Tela inicial e login | `tela-inicial1` | `index.html`, `pages/login.html`, `styles/inicio.css`, `styles/login.css` | _nome_ |
-| Visão geral (dashboard) | `feature/visao-geral` | `pages/dashboard.html`, `styles/dashboard.css` | _nome_ |
-| Lançamentos | `feature/lancamentos` | `pages/lancamentos.html`, `styles/lancamentos.css` | _nome_ |
-| Categorias e limites | `feature/categorias` | `pages/categorias.html`, `styles/categorias.css` | _nome_ |
-| Contas fixas | `feature/contas-fixas` | `pages/contas.html`, `styles/contas.css` | _nome_ |
-| Parcelamentos | `feature/parcelamentos` | `pages/parcelamentos.html`, `styles/parcelamentos.css` | _nome_ |
-| Metas | `feature/metas` | `pages/metas.html`, `styles/metas.css` | _nome_ |
+| Tela inicial e login | `tela-inicial1` | `index.html`, `pages/login.html`, `styles/inicio.css`, `styles/login.css` | Gustavo Crepaldi |
+| Visão geral (dashboard) | `feature/visao-geral` | `pages/dashboard.html`, `styles/dashboard.css` | João Vitor Leite |
+| Lançamentos | `feature/lancamentos` | `pages/lancamentos.html`, `styles/lancamentos.css` | A fazer |
+| Categorias e limites | `feature/categorias` | `pages/categorias.html`, `styles/categorias.css` | Leonardo Newman |
+| Contas fixas | `feature/contas-fixas` | `pages/contas.html`, `styles/contas.css` | Matheus Finardi |
+| Parcelamentos | `feature/parcelamentos` | `pages/parcelamentos.html`, `styles/parcelamentos.css` | Felipe Righetto |
+| Metas | `feature/metas` | `pages/metas.html`, `styles/metas.css` | A fazer |

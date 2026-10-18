@@ -1,0 +1,214 @@
+/* ==========================================================
+   metas.css — estilos só da página "Metas de economia"
+   Usa as variáveis do projeto quando existirem; os valores
+   depois da vírgula são reserva caso o nome seja diferente.
+   ========================================================== */
+
+.pagina-metas {
+  --m-verde: #16c55e;
+  --m-verde-escuro: #15803d;
+  --m-verde-claro: #e7f9ee;
+  --m-escuro: #1e293b;
+  --m-texto: #1e293b;
+  --m-suave: #64748b;
+  --m-borda: #e2e8f0;
+}
+
+/* ---------- Resumo da economia (cartão escuro) ---------- */
+.resumo-economia {
+  background: var(--m-escuro);
+  color: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.resumo-economia h2 {
+  margin: 0 0 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.economia-conta {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px 24px;
+}
+
+.economia-parcelas {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  margin: 0;
+}
+
+.economia-parcelas div { margin: 0; }
+
+.economia-parcelas dt {
+  font-size: 0.875rem;
+  color: #e2e8f0;
+  margin-bottom: 6px;
+}
+
+.economia-parcelas dd {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.economia-sinal {
+  font-size: 1rem;
+  color: #94a3b8;
+  padding-bottom: 3px;
+}
+
+.economia-total {
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+  padding-left: 24px;
+}
+
+.economia-total-rotulo {
+  margin: 0 0 4px;
+  font-size: 0.875rem;
+  color: #e2e8f0;
+}
+
+.economia-total-valor {
+  margin: 0;
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--m-verde);
+}
+
+.economia-texto {
+  margin: 20px 0 0;
+  max-width: 640px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #e2e8f0;
+}
+
+.economia-texto strong { color: #fff; }
+
+/* ---------- Cartão de meta ---------- */
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.meta-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.meta-topo h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--m-texto);
+}
+
+.meta-prazo {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--m-suave);
+}
+
+.meta-valor {
+  margin: 8px 0 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.meta-valor .valor {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--m-texto);
+}
+
+.meta-valor span {
+  font-size: 0.875rem;
+  color: var(--m-suave);
+}
+
+.meta-concluida .meta-valor .valor { color: var(--m-verde-escuro); }
+
+/* ---------- Selos ---------- */
+.selo {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.selo-percentual {
+  background: #eef2f6;
+  color: var(--m-suave);
+}
+
+.selo-concluida {
+  background: var(--m-verde-claro);
+  color: var(--m-verde-escuro);
+}
+
+/* ---------- Barra de progresso ---------- */
+.meta progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 10px;
+  border: 0;
+  border-radius: 999px;
+  background: #eef2f6;
+  overflow: hidden;
+}
+
+.meta progress::-webkit-progress-bar {
+  background: #eef2f6;
+  border-radius: 999px;
+}
+
+.meta progress::-webkit-progress-value {
+  background: var(--m-verde);
+  border-radius: 999px;
+}
+
+.meta progress::-moz-progress-bar {
+  background: var(--m-verde);
+  border-radius: 999px;
+}
+
+.meta .categoria-nota {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--m-suave);
+}
+
+.meta .categoria-nota strong { color: var(--m-texto); }
+
+/* ---------- Celular ---------- */
+@media (max-width: 640px) {
+  .resumo-economia { padding: 24px 20px; }
+
+  .economia-parcelas { gap: 14px; flex-wrap: wrap; }
+
+  .economia-total {
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 16px 0 0;
+    width: 100%;
+  }
+
+  .economia-total-valor { font-size: 1.875rem; }
+}

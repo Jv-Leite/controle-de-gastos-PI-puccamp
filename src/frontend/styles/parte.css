@@ -1,0 +1,111 @@
+:root {
+  --cor-primaria: #22c55e;
+  --cor-primaria-hover: #16a34a;
+  --cor-fundo: #f7f9fa;
+  --cor-texto: #1f2937;
+  --cor-texto-secundario: #6b7280;
+  --fonte-principal: 'Inter', sans-serif;
+  --radius-padrao: 10px;
+  --espacamento-padrao: 16px;
+}
+body{
+  background-color: var(--cor-fundo);
+  font-family: var(--fonte-principal);
+  color: var(--cor-texto);
+}
+.menu ul {
+  display: flex;
+  list-style: none; /* remove as bolinhas */
+  margin: 0;
+  padding: 0;
+  gap: var(--espacamento-padrao);
+}
+.menu a{
+  text-decoration: none;
+  color: #000000;
+}
+.navbar {
+   border-radius: var(--radius-padrao);
+  margin-left: var(--espacamento-padrao);
+  background-color: var(--cor-primaria-hover);
+display:flex; /* 1) Flex para estruturar */
+flex-direction: row; /* 2) Empilha logo e menu no mobile */
+align-items: flex-start; /* 3) Alinha à esquerda (coerente em telas estreitas) */
+}
+.navbar img {
+  background-color:  #e8fc03;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: var(--espacamento-padrao);
+}
+.visaogeral {
+  display: grid;
+  grid-template-areas: "aside content";
+  grid-template-columns: 250px 1fr;
+  height: 100%;
+}
+.content{
+  grid-area: content;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+grid-template-areas: "saldo resto"
+"grafico grafico";
+  gap: var(--espacamento-padrao);
+  padding: var(--espacamento-padrao);
+}
+.saldoprincipal {
+  background-color: #000000;
+  color: #32932b;
+  padding: var(--espacamento-padrao);
+  border-radius: var(--radius-padrao);
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.saldoprincipal p {
+  font-size: 24px;
+  font-weight: bold;
+}
+.resto{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espacamento-padrao);
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto);
+  padding: var(--espacamento-padrao);
+  border-radius: var(--radius-padrao);
+}
+.card{
+  background-color: #20e999;
+  padding: var(--espacamento-padrao);
+  border-radius: var(--radius-padrao);
+}
+.cardprincipal{
+  padding: var(--espacamento-padrao);
+  border-radius: var(--radius-padrao);
+}
+.grafico img{
+  max-width: auto;
+  max-height: 300px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: var(--cor-texto);
+}
+.sidebar{
+  grid-area: aside;
+   border-radius: var(--radius-padrao);
+  margin-left: var(--espacamento-padrao);
+  background: #474849;
+  height: 100%;
+  color:#ffffff;
+}
+.sidebar li{
+  list-style: none;
+  width:65%;
+  padding: var(--espacamento-padrao);
+  border-bottom: 5px ;
+  background-color: var(--cor-primaria-hover);
+  border-radius: var(--radius-padrao);
+}

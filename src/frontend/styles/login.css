@@ -14,12 +14,14 @@
   flex-direction: column;
   align-items: center;  
   line-height: 0.9;
-}
+  cursor:pointer;
+} 
 
 .logo-conta {
   font-size: 2.7rem;
   font-weight: 900;
   color: #1e293b;
+  cursor:pointer;
 }
 
 .logo-linha-ai {
@@ -27,12 +29,14 @@
   flex-direction: row;
   align-items: center;
   gap: 8px;
+  cursor:pointer;
 }
 
 .logo-ai {
   font-size: 2.7rem;
   font-weight: 800;
   color: #00e676;
+  cursor:pointer;
 }
 
 
@@ -41,21 +45,9 @@
   height: 40px;
   object-fit:cover;
   display:inline;
+  cursor:pointer;
 }
 
-
-
-button {
-  width: 30%;
-  padding: 12px;
-  border-radius: 6px;
-  border: none;
-  background-color: rgb(48, 151, 55);
-  color: white;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-}
 
 h1 {
     font-size:250%;
@@ -64,15 +56,15 @@ h1 {
 
 
 .botoes-sociais {
-  display: flex;
-  gap: 12px;
-  width: 100%;
+  padding-top: 15px;
+  display: flex;  
+  width:40%;
   max-width: 440px;
 }
 
-.btn-social {
+.btn-google {
+  width: 100%;
   cursor: pointer;
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,7 +80,7 @@ h1 {
   transition: all 0.2s ease;
 }
 
-.btn-social:hover {
+.btn-google:hover {
   background-color: #ecf3ee;
   border-color: #12a63f;
 }
@@ -98,12 +90,9 @@ button * {
   cursor: pointer;
 }
 
-input:focus {
-  outline: none;
-  background-color: #e8fdee;
-  border-color: #aad1b6;
-  box-shadow: 0 0 0 2px rgba(210, 215, 213, 0.644);
-  transition: all 0.2s ease;
+input::placeholder{
+  font-size:16px;
+  opacity:55%;
 }
 
 input{
@@ -116,7 +105,39 @@ input{
     margin-bottom:10px;
     padding: 0.4rem;
     border-radius:3px;
-    border: 2px solid rgba(218, 218, 228, 0.99);        
+    border: 2px solid #aacdb4;        
+}
+
+/* Texto de erro vermelho embaixo do input */
+.erro-msg {
+  color: #dc2626; /* Vermelho */
+  font-size: 0.78rem;
+  margin-top: 4px;
+  display: none; /* Começa invisível */
+}
+
+/* Quando a div pai (.input-box) tiver a classe 'invalido', mostra o texto */
+.input-box.invalido .erro-msg {
+  display: block;
+}
+
+/* Deixa a borda do input e o ícone vermelhos quando der erro */
+.input-box.invalido .input-field input {
+  border-color: #dc2626;
+}
+
+.input-box.invalido .input-field i {
+  color: #dc2626;
+}
+
+
+.erro {
+    color: #e53935;
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 4px;
+    margin-bottom: 0px;
+    min-height: 1.5rem;
 }
 
 .linha-verde {
@@ -158,7 +179,7 @@ input{
   font-size: larger;
   flex: 1;
   color: rgb(17, 18, 17);   
-  background-color: #f8fafc;
+  background-color: #f1f5f9;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -181,7 +202,7 @@ input{
   content: "";
   flex: 1;
   height: 1px;
-  background-color: #cfcfd7;
+  background-color: #c4c4c9;
 }
 
 /*barrinha escrita ou*/
@@ -192,42 +213,236 @@ input{
 }
 
 
-.formulario {
-  width: 100%;
+.form {
+  width: 45%;
   max-width: 440px;
   display: flex;
   flex-direction: column;
   color:#434242aa;
 }
 
+.cadastrar-email{
+  height: 40px;
+  min-width:60%;
+  align-items:center;
+  max-width:440px;
+  padding: 9px;
+  border-radius:6px;
+  border:none;
+  background-color:#efebeb;
+  font-size: 1rem;
+  color:#00d36d;
+  font-weight:500;
+  cursor:pointer;
+  margin-top: 10px;
+  box-shadow:0 4px 0 #dfdddd;
+  transition: all 0.2s ease;
+}
 
-button {
+.cadastrar-email:hover {
+  background-color: rgb(240, 240, 240);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 rgb(187, 186, 186);
+}
+
+
+.cadastrar-email:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 rgb(30, 105, 36);
+  transition: all 0.2s ease;
+}
+
+
+
+/*MODAL============================================================================*/
+
+/*fundo escuro do modal*/
+.modal-cadastro {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+/*mostra modal*/
+.modal-cadastro.active {
+  display: flex;
+}
+
+/*caixa branca no mei*/
+.modal-conteudo {
+  position: relative;
+  background-color: #ffffff;
   width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+  padding: 28px 24px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: modalEntrada 0.25s ease-out;
+}
+
+/*animação abrindo*/
+@keyframes modalEntrada {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/*botão de fechar o modal*/
+.modal-fechar {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.modal-fechar:hover {
+  color: #111;
+}
+
+/*textos e espaços*/
+.modal-conteudo h2 {
+  color: #1a202c;
+  margin-bottom: 6px;
+}
+
+.modal-conteudo p {
+  color: #718096;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+
+.modal-login {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.modal-login.active {
+  display: flex;
+}
+
+/*inputs*/
+.input-box {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.input-box label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.input-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 10px 38px 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.input-field input:focus {
+  border-color: #2e7d32;
+}
+
+.input-field i {
+  position: absolute;
+  right: 12px;
+  color: #9ca3af;
+}
+
+/*botão pra enviar*/
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+
+.btn-submit:hover {
+  background-color: #256628;
+}
+
+
+
+
+
+.ja-tenho-conta{
+  min-width:60%;
+  height:40px;
+  align-items:center;
   max-width: 440px;
-  padding: 14px;
+  padding: 9px;
   border-radius: 8px;
   border: none;
   background-color: rgb(48, 151, 55);
-  color: #ffffff;
+  color: #fffefe;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 600;       
   cursor: pointer;
-  margin-top: 10px;
-  box-shadow: 0 4px 0 rgb(35, 128, 43);
-  transition: all 0.1s ease;
+  margin-top: 20px;
+  box-shadow: 0 4px 0 rgb(32, 112, 38);
+  transition: all 0.2s ease;
 }
 
-button:hover {
-  background-color: rgb(38, 127, 44);
+.ja-tenho-conta i {
+  margin-right: 5px;
+}
+
+.ja-tenho-conta:hover {
+  background-color:  rgb(45, 142, 52);
   transform: translateY(-2px);
-  box-shadow: 0 6px 0 rgb(30, 105, 36);
+  box-shadow: 0 6px 0 rgb(32, 112, 38);
 }
 
-
-button:active {
+.ja-tenho-conta:active {
   transform: translateY(2px);
   box-shadow: 0 2px 0 rgb(30, 105, 36);
-  transition: all 0.1s ease;
+  transition: all 0.2s ease;
 }
 
 

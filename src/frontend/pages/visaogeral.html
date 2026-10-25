@@ -18,14 +18,16 @@
   <link rel="stylesheet" href="../styles/components.css">
   <link rel="stylesheet" href="../styles/painel.css">
 
-  <link rel="stylesheet" href="../styles/parte.css">
+  <link rel="stylesheet" href="../styles/visaogeral.css">
+
+  <script src="../scripts/visaogeral.js" defer></script>
 </head>
 
 <body class="painel">
   <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
 
   <header class="barraverde topo">
-    <a href="dashboard.html" class="logo-link" aria-label="ContaAí: ir para a visão geral">
+    <a href="../index.html" class="logo-link" aria-label="ContaAí: ir para a visão geral">
       <div class="logo-box">
         <span class="logo-conta">Conta</span>
         <div class="logo-linha-ai">
@@ -49,7 +51,7 @@
   <nav class="menu" id="menu-principal" aria-label="Menu principal">
     <ul class="menu-lista">
       <li>
-        <a class="menu-link" href="dashboard.html" aria-current="page">
+        <a class="menu-link" href="visaogeral.html" aria-current="page">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
           Visão geral
         </a>
@@ -106,21 +108,21 @@
     <section class="secao" aria-labelledby="titulo-resumo">
       <h2 class="sr-only" id="titulo-resumo">Resumo do mês</h2>
 
-      <div class="card card-saldo">
+      <div class="cartão cartão-saldo">
         <h3>Saldo previsto</h3>
-        <p class="resumo-valor valor">R$ 1.500,00</p>
+        <p class="resumo-valor valor" id="saldo-previsto">R$ 1.500,00</p>
       </div>
 
-      <div class="cards-grid resumo-cards">
-        <div class="card">
+      <div class="cartão-grid resumo-cartão">
+        <div class="cartão">
           <h3>Receitas</h3>
           <p class="resumo-valor valor">R$ 5.400,00</p>
         </div>
-        <div class="card">
+        <div class="cartão">
           <h3>Despesas</h3>
           <p class="resumo-valor valor">R$ 3.900,00</p>
         </div>
-        <div class="card">
+        <div class="cartão">
           <h3>A pagar</h3>
           <p class="resumo-valor valor">R$ 1.500,00</p>
         </div>
@@ -128,14 +130,14 @@
     </section>
 
     <div class="graficos">
-      <section class="card" aria-labelledby="titulo-categorias">
+      <section class="cartão" aria-labelledby="titulo-categorias">
         <h2 class="secao-titulo" id="titulo-categorias">Gastos por categoria</h2>
         <div class="grafico">
           <img src="../../../assets/img/grafico.png" alt="Gráfico de rosca com R$ 3.246,70 em despesas: Moradia 44%, Alimentação 26%, Compras 17%, Transporte 6%, Lazer 4% e Saúde 3%." class="grafico-imagem grafico-rosca">
         </div>
       </section>
 
-      <section class="card" aria-labelledby="titulo-comparativo">
+      <section class="cartão" aria-labelledby="titulo-comparativo">
         <h2 class="secao-titulo" id="titulo-comparativo">Receitas x despesas</h2>
         <div class="grafico">
           <img src="../../../assets/img/grafico2.png" alt="Gráfico de barras de abril a setembro comparando receitas e despesas. As receitas ficam acima das despesas em todos os meses, exceto em julho." class="grafico-imagem">
@@ -144,6 +146,85 @@
     </div>
 
   </main>
+
+
+
+
+
+
+  <!-- Modal obrigatório: configuração do perfil -->
+  <div class="modal-perfil" id="modal-perfil">
+    <div class="modal-caixa">
+
+      <div class="modal-cabecalho">
+        <span class="texto-verde">Último passo do cadastro</span>
+        <h2>Vamos configurar o seu perfil</h2>
+        <p>
+          Com essas informações, o ContaAí já consegue mostrar seu saldo previsto,
+          os vencimentos e quanto você pode gastar em cada categoria. Leva cerca de dois minutos,
+          e tudo pode ser alterado depois.
+        </p>
+      </div>
+
+      <form id="form-perfil">
+
+        <!-- Etapa 1: renda -->
+        <div class="etapa">
+          <div class="etapa-topo">
+            <span class="etapa-numero">1</span>
+            <div>
+              <h3>Sua renda mensal</h3>
+              <p>É a base do seu saldo previsto e do quanto sobra para as metas. Ela será salva como uma receita fixa.</p>
+            </div>
+          </div>
+
+          <div class="campos-2">
+            <div class="campo">
+              <label for="renda">Valor recebido por mês (R$)</label>
+              <input type="number" id="renda" placeholder="Ex.: 2500" required step="0.01" min="0">
+            </div>
+            <div class="campo">
+              <label for="dia-recebimento">Dia do recebimento</label>
+              <input type="number" id="dia-recebimento" placeholder="Ex.: 5" min="1" max="31" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Etapa 2: conta fixa (opcional) -->
+        <div class="etapa">
+          <div class="etapa-topo">
+            <span class="etapa-numero">2</span>
+            <div>
+              <div class="titulo-tag">
+                <h3>Suas principais contas fixas</h3>
+                <span class="tag-opcional">opcional</span>
+              </div>
+              <p>Contas que se repetem todo mês, como aluguel, internet e assinaturas. Você pode cadastrar outras depois, na tela de Contas fixas.</p>
+            </div>
+          </div>
+
+          <span class="rotulo-conta">Conta 1</span>
+          <div class="campos-3">
+            <div class="campo">
+              <label for="conta-nome">Nome</label>
+              <input type="text" id="conta-nome" placeholder="Ex.: Aluguel">
+            </div>
+            <div class="campo">
+              <label for="conta-valor">Valor (R$)</label>
+              <input type="number" id="conta-valor" placeholder="Ex.: 1200" step="0.01" min="0">
+            </div>
+            <div class="campo">
+              <label for="conta-vencimento">Vencimento</label>
+              <input type="number" id="conta-vencimento" placeholder="Ex.: 10" min="1" max="31">
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="botao-concluir">Concluir e acessar painel</button>
+      </form>
+
+    </div>
+  </div>
 
   <script src="../scripts/menu.js"></script>
 </body>

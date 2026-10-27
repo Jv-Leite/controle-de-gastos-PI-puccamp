@@ -23,7 +23,7 @@ window.addEventListener("load", () => {
 
         localStorage.setItem("usuarioLogado", usuario.given_name);
 
-        // primeiro logon com google tmb configura as coisas
+        //primeiro logon com google tmb configura as coisas
         if (!localStorage.getItem("perfilConfigurado")) {
           localStorage.setItem("perfilConfigurado", "false");
         }
@@ -148,7 +148,7 @@ botaoGoogle.addEventListener("click", () => {
         limparErro(inputEmail, 'erro-email');
       }
 
-      //senha (minimo 6 caracteres)
+      //senha com no minimo 6 caracteres
       if (senha.length < 6) {
         mostrarErro(inputSenha, 'erro-senha', 'A senha deve ter no mínimo 6 caracteres.');
         temErro = true;
@@ -211,6 +211,11 @@ botaoGoogle.addEventListener("click", () => {
       if (!localStorage.getItem('usuarioLogado')) {
         const nomeDoEmail = email.split('@')[0];
         localStorage.setItem('usuarioLogado', nomeDoEmail);
+      }
+
+      // primeiro acesso nesse navegador vai abrir a configuração do perfil
+      if (!localStorage.getItem('perfilConfigurado')) {
+        localStorage.setItem('perfilConfigurado', 'false');
       }
 
       window.location.href = 'visaogeral.html';

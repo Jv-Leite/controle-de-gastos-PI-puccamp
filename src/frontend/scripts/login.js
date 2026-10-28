@@ -1,8 +1,5 @@
 console.log('olá, Mundo!');
 
-
-
-
 //login google--------------------------------------------------------------------------------------------------------
 
 const CLIENT_ID = "40556338154-6nu0sdn7epkkfem0gk803khfhgua2o69.apps.googleusercontent.com";
@@ -42,11 +39,6 @@ botaoGoogle.addEventListener("click", () => {
 
 
 
-
-
-
-
-
 //cadastro com e-mail-------------------------------------------------------------------------------------------------
 
   const btnCadastrar = document.getElementById('cadastrar-email');
@@ -65,10 +57,7 @@ botaoGoogle.addEventListener("click", () => {
 
 
 
-
-
 //já tenho conta----------------------------------------------------------------------------------------------------
-
 
 
     
@@ -80,16 +69,9 @@ botaoGoogle.addEventListener("click", () => {
   modalLogin.classList.add('active');
   });
 
-
-
-
   btnFecharLogin.addEventListener('click', () => {
     modalLogin.classList.remove('active');
   });
-
-
-
-
 
 
 
@@ -111,9 +93,6 @@ botaoGoogle.addEventListener("click", () => {
     spanErro.innerText = '';
   }
 
-
-
-
   //validação do cadastro
 
   const formCadastro = document.getElementById('form-cadastro');
@@ -131,7 +110,7 @@ botaoGoogle.addEventListener("click", () => {
       const email = inputEmail.value.trim();
       const senha = inputSenha.value;
 
-      //nome (2 a 20 caracteres)
+      //nome de 2 a 20 caracteres
       if (nome.length < 2 || nome.length > 20) {
         mostrarErro(inputNome, 'erro-nome', 'O nome deve ter entre 2 e 20 caracteres.');
         temErro = true;
@@ -148,7 +127,7 @@ botaoGoogle.addEventListener("click", () => {
         limparErro(inputEmail, 'erro-email');
       }
 
-      //senha (minimo 6 caracteres)
+      //senha de no minimo 6 caracteres
       if (senha.length < 6) {
         mostrarErro(inputSenha, 'erro-senha', 'A senha deve ter no mínimo 6 caracteres.');
         temErro = true;
@@ -157,7 +136,7 @@ botaoGoogle.addEventListener("click", () => {
       }
 
         if (!temErro) {
-        // Conta nova começa do zero: apaga os dados financeiros de cadastros anteriores
+        //conta nova começa do zero e apaga os dados financeiros de cadastros anteriores
         Object.keys(localStorage)
           .filter(chave => chave.startsWith('ca_'))
           .forEach(chave => localStorage.removeItem(chave));
@@ -173,9 +152,6 @@ botaoGoogle.addEventListener("click", () => {
 
     });
   }
-
-
-
 
   //validação do Login
   const formLogin = document.getElementById('form-login');
@@ -219,7 +195,7 @@ botaoGoogle.addEventListener("click", () => {
         localStorage.setItem('usuarioLogado', nomeDoEmail);
       }
 
-      // primeiro acesso neste navegador: abre a configuração do perfil
+      //primeiro acesso neste navegador abre a configuração do perfil
       if (!localStorage.getItem('perfilConfigurado')) {
         localStorage.setItem('perfilConfigurado', 'false');
       }

@@ -86,7 +86,7 @@
       `${pendentes.length} a vencer`;
   }
 
-  /* ----- janela de cadastro ----- */
+  //janela de cadastro
 
   function preencherCategorias(selecionada) {
     const opcoes = categorias.todos().filter(c => c.tipo === campos.tipo.value)
@@ -139,7 +139,7 @@
     desenhar();
   });
 
-  /*ações da lista*/
+  //ações da lista
 
   lista.addEventListener('click', evento => {
     //menu de tres pontinhos

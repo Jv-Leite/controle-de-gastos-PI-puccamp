@@ -1,4 +1,4 @@
-// Contas fixas: criar, modificar, marcar como paga e remover.
+//contas fixas
 (() => {
   'use strict';
   const { contasFixas, categorias, mesAtual, moeda, escapar, classeCategoria } = ContaAi;
@@ -16,7 +16,7 @@
     categoria: document.getElementById('conta-categoria')
   };
 
-  // cor e ícone de cada categoria
+  //cor e icone de cada categoria
   const ICONES = {
     'cat-moradia': ['category-housing', 'fa-house'],
     'cat-alimentacao': ['category-services', 'fa-utensils'],
@@ -69,7 +69,7 @@
     lista.innerHTML = todas.map(c => item(c, mes)).join('');
     avisoVazio.hidden = todas.length > 0;
 
-    // resumo (só despesas)
+    //só despesas
     const despesas = todas.filter(c => c.tipo === 'despesa');
     const pagas = despesas.filter(c => c.pagoMes === mes);
     const pendentes = despesas.filter(c => c.pagoMes !== mes);
@@ -116,7 +116,7 @@
   document.getElementById('conta-cancelar').addEventListener('click', () => dialogo.close());
   campos.tipo.addEventListener('change', () => preencherCategorias(''));
 
-  // clicar fora da caixa fecha a janela
+  //clicar fora da caixa fecha a janela
   dialogo.addEventListener('click', e => { if (e.target === dialogo) dialogo.close(); });
 
   form.addEventListener('submit', evento => {
@@ -139,10 +139,10 @@
     desenhar();
   });
 
-  /* ----- ações da lista ----- */
+  /*ações da lista*/
 
   lista.addEventListener('click', evento => {
-    // abre/fecha o menu de três pontinhos (funciona também no celular)
+    //menu de tres pontinhos
     const ponto = evento.target.closest('.btn-more-actions');
     if (ponto) {
       const caixa = ponto.parentElement;

@@ -1,4 +1,4 @@
-// Categorias e limites: criar, editar o limite, excluir e ver o uso no mês.
+//categorias e limites
 (() => {
   'use strict';
   const { categorias, gastosPorCategoria, mesAtual, nomeMes, moeda,
@@ -54,7 +54,7 @@
     document.getElementById('mes-texto').setAttribute('datetime', mes);
     document.getElementById('resumo-mes').textContent = nomeMes(mes);
 
-    // resumo: só entram as categorias com limite
+    //só entra categoria com limite
     const comLimite = doTipo.filter(c => c.limite > 0);
     const soma = comLimite.reduce((s, c) => s + c.limite, 0);
     const gasto = comLimite.reduce((s, c) => s + (gastos[c.nome] || 0), 0);
@@ -116,7 +116,7 @@
       const resposta = prompt(
         `Limite mensal de ${categoria.nome} (R$).\nDeixe em branco para tirar o limite.`,
         categoria.limite || '');
-      if (resposta === null) return; // cancelou
+      if (resposta === null) return; //cancelou
       const novo = lerNumero(resposta);
       categorias.atualizar(id, { limite: novo > 0 ? novo : null });
     } else if (botao.dataset.acao === 'excluir') {

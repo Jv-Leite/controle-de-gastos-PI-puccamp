@@ -1,14 +1,12 @@
 /* ==========================================================
-   metas.css — estilos só da página "Metas de economia"
-   Usa as variáveis do projeto quando existirem; os valores
-   depois da vírgula são reserva caso o nome seja diferente.
+   aqui eh a parte de metas de economia, do css 
    ========================================================== */
 
 .pagina-metas {
   --m-verde: #16c55e;
   --m-verde-escuro: #15803d;
   --m-verde-claro: #e7f9ee;
-  --m-escuro: #1e293b;
+  --m-escuro: #000000;
   --m-texto: #1e293b;
   --m-suave: #64748b;
   --m-borda: #e2e8f0;

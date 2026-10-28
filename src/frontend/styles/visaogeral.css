@@ -276,3 +276,38 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* gráficos feitos com barras (montados pelo JavaScript) */
+.grafico-lista { display: block; }
+
+.grafico-itens {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+}
+
+.grafico-linha {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espaco-3);
+  margin-bottom: var(--espaco-1);
+  font-size: var(--texto-sm);
+}
+
+.grafico-legenda {
+  margin-top: var(--espaco-4);
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-suave);
+}
+
+.legenda-ponto {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 4px 0 8px;
+  border-radius: 50%;
+}

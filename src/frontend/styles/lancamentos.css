@@ -101,6 +101,9 @@
 
 .segmentado input {
   position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
   opacity: 0;
   pointer-events: none;
 }
@@ -151,6 +154,9 @@
 /* ---------- Filtros (só CSS) ---------- */
 .filtro-radio {
   position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
   opacity: 0;
   pointer-events: none;
 }
@@ -291,6 +297,7 @@
 .cat-saude       { --cor: #94a3b8; }
 .cat-compras     { --cor: #6366f1; }
 .cat-salario     { --cor: #2f9e44; }
+.cat-extra       { --cor: #86efac; }
 
 /* ---------- Selos de situação ---------- */
 .selo {

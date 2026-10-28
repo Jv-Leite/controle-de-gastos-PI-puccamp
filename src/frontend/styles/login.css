@@ -108,7 +108,7 @@ input{
     border: 2px solid #aacdb4;        
 }
 
-/* Texto de erro vermelho embaixo do input */
+/*texto de erro vermelho embaixo do input */
 .erro-msg {
   color: #dc2626; /* Vermelho */
   font-size: 0.78rem;
@@ -116,12 +116,12 @@ input{
   display: none; /* Começa invisível */
 }
 
-/* Quando a div pai (.input-box) tiver a classe 'invalido', mostra o texto */
+/*quando a input box ta como invalido mostra o texto */
 .input-box.invalido .erro-msg {
   display: block;
 }
 
-/* Deixa a borda do input e o ícone vermelhos quando der erro */
+/*deixa a borda do input e o ícone vermelhos quando da erro */
 .input-box.invalido .input-field input {
   border-color: #dc2626;
 }
@@ -251,8 +251,6 @@ input{
   box-shadow: 0 2px 0 rgb(30, 105, 36);
   transition: all 0.2s ease;
 }
-
-
 
 /*MODAL============================================================================*/
 
@@ -406,10 +404,6 @@ input{
 .btn-submit:hover {
   background-color: #256628;
 }
-
-
-
-
 
 .ja-tenho-conta{
   min-width:60%;

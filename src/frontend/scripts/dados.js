@@ -1,15 +1,10 @@
-/* =====================================================================
-   dados.js — base compartilhada de todas as telas do painel.
-   Guarda tudo no localStorage do navegador (perfil local, sem servidor).
-   Carregue ESTE arquivo antes do script da página:
-     <script src="../scripts/dados.js"></script>
-     <script src="../scripts/lancamentos.js"></script>
-   ===================================================================== */
+/*Dados é a base compartilhada de todas as telas*/
+/*guarda tudo em localStorage*/
 
 const ContaAi = (() => {
   'use strict';
 
-  /* ---------- armazenamento ---------- */
+  /*armazenamento*/
   const CHAVES = {
     lancamentos: 'ca_lancamentos',
     categorias: 'ca_categorias',
@@ -36,7 +31,7 @@ const ContaAi = (() => {
     return Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
   }
 
-  // Cria uma "coleção": uma lista de objetos com id, guardada numa chave.
+  //cria uma lista de obj guardados com id
   function colecao(chave) {
     return {
       todos() { return ler(chave, []); },
@@ -60,14 +55,13 @@ const ContaAi = (() => {
     };
   }
 
-  /* ---------- as coleções do site ---------- */
+  /*coleções do site*/
   const lancamentos = colecao(CHAVES.lancamentos);
   const contasFixas = colecao(CHAVES.contasFixas);
   const parcelamentos = colecao(CHAVES.parcelamentos);
   const metas = colecao(CHAVES.metas);
 
-  // Categorias já nascem com as básicas (sem limite). Cada uma é de
-  // 'despesa' ou de 'receita'.
+  // Categorias já começam sem limites de receita ou despesa
   const CATEGORIAS_PADRAO = [
     { nome: 'Alimentação', tipo: 'despesa' },
     { nome: 'Moradia', tipo: 'despesa' },
@@ -90,7 +84,7 @@ const ContaAi = (() => {
     }
   };
 
-  /* ---------- datas e formatação ---------- */
+  /*datas e formatação*/
   const MESES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
     'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
 
@@ -103,33 +97,31 @@ const ContaAi = (() => {
 
   function mesAtual() { return hoje().slice(0, 7); }
 
-  // '2026-09' -> 'setembro de 2026'
   function nomeMes(ym) {
     const [ano, mes] = ym.split('-');
     return `${MESES[Number(mes) - 1]} de ${ano}`;
   }
 
-  // '2026-09' -> 'set/26'
   function mesCurto(ym) {
     const [ano, mes] = ym.split('-');
     return `${MESES[Number(mes) - 1].slice(0, 3)}/${ano.slice(2)}`;
   }
 
-  // soma (ou subtrai) meses: somarMeses('2026-11', 2) -> '2027-01'
+  //soma de meses
   function somarMeses(ym, n) {
     const [ano, mes] = ym.split('-').map(Number);
     const total = ano * 12 + (mes - 1) + n;
     return `${Math.floor(total / 12)}-${pad((total % 12) + 1)}`;
   }
 
-  // diferença em meses: diferencaMeses('2027-05', '2026-09') -> 8
+  //diferença de meses
   function diferencaMeses(a, b) {
     const [aa, am] = a.split('-').map(Number);
     const [ba, bm] = b.split('-').map(Number);
     return (aa * 12 + am) - (ba * 12 + bm);
   }
 
-  // '2026-09-25' -> '25/09/2026'
+//
   function formatarData(iso) {
     const [ano, mes, dia] = iso.split('-');
     return `${dia}/${mes}/${ano}`;
@@ -140,14 +132,14 @@ const ContaAi = (() => {
     return formatoMoeda.format(valor || 0).replace(/\u00a0/g, ' ');
   }
 
-  // Evita que texto digitado vire HTML ao montar as telas com innerHTML.
+  // Evita que texto digitado vire html ao montar as telas com innerhtml.
   function escapar(texto) {
     return String(texto ?? '')
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   }
 
-  // 'Saúde' -> 'cat-saude' (cor da categoria; as novas usam 'cat-extra')
+  //saude
   function classeCategoria(nome) {
     const limpo = String(nome || '').normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '').toLowerCase();
@@ -155,12 +147,12 @@ const ContaAi = (() => {
     return conhecidas.includes(limpo) ? `cat-${limpo}` : 'cat-extra';
   }
 
-  /* ---------- somas simples (usadas em mais de uma tela) ---------- */
+  /*soma usada em mais telas*/ 
   function doMes(mes) {
     return lancamentos.todos().filter(l => l.data.startsWith(mes));
   }
 
-  // despesas do mês somadas por categoria: { Alimentação: 120, ... }
+  //soma dos mes somada por categoria
   function gastosPorCategoria(mes) {
     const gastos = {};
     doMes(mes).filter(l => l.tipo === 'despesa').forEach(l => {
@@ -169,9 +161,8 @@ const ContaAi = (() => {
     return gastos;
   }
 
-  // Resumo do mês: lançamentos + contas fixas (que se repetem todo mês).
-  // Para meses passados use incluirFixas = false (as contas fixas só valem
-  // do mês atual em diante).
+  //resumo do mês que se repetem
+  //para meses passados usa incluirFixas = false para as contas fixas só valerem do mês atual em diante
   function resumoDoMes(mes, incluirFixas = true) {
     let receitas = 0, despesas = 0, aPagar = 0;
 
@@ -196,13 +187,13 @@ const ContaAi = (() => {
     return { receitas, despesas, aPagar, saldo: receitas - despesas };
   }
 
-  /* ---------- barra do topo (todas as telas do painel) ---------- */
+  /*barra no topo*/
   function iniciarPainel() {
     if (!document.body.classList.contains('painel')) return;
 
     const nome = localStorage.getItem('usuarioLogado');
 
-    // sem login, volta para a tela de entrada
+    //sem login sai
     if (!nome) {
       window.location.href = 'login.html';
       return;
@@ -213,7 +204,7 @@ const ContaAi = (() => {
     if (saudacao) saudacao.textContent = nome;
     if (avatar) avatar.textContent = nome.charAt(0).toUpperCase();
 
-    // "Sair do perfil" encerra a sessão (os dados financeiros ficam salvos)
+    // sair do perfil
     const sair = document.querySelector('.menu-rodape .menu-link');
     if (sair) {
       sair.addEventListener('click', () => localStorage.removeItem('usuarioLogado'));

@@ -1,0 +1,238 @@
+.pagina-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--espaco-4);
+  margin-bottom: var(--espaco-6);
+}
+
+.pagina-cabecalho div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+}
+
+.pagina-cabecalho p {
+  color: var(--cor-texto-suave);
+  margin: 0;
+}
+
+/* botao nova conta */
+.btn-novo {
+  background-color: var(--cor-marca);
+  color: var(--cor-texto-botao);
+  padding: var(--espaco-3) var(--espaco-5);
+  border-radius: var(--raio-m);
+  border: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: var(--texto-base);
+}
+
+.btn-novo:hover {
+  background-color: var(--cor-marca-hover);
+}
+
+/* cards de resumo no topo */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--espaco-4);
+  margin-bottom: var(--espaco-6);
+}
+
+.card-summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+  padding: var(--espaco-5);
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-g);
+  box-shadow: var(--sombra-card);
+}
+
+.card-title {
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-suave);
+  font-weight: 500;
+}
+
+.card-value {
+  font-size: var(--texto-xl);
+  font-weight: 900;
+  color: var(--cor-texto);
+}
+
+.card-subtitle {
+  font-size: var(--texto-xs);
+  color: var(--cor-texto-claro-suave);
+}
+
+/* cores de texto dos status*/
+.text-danger { color: var(--cor-erro); }
+.text-success { color: var(--cor-ok-texto); }
+.text-warning { color: var(--cor-alerta-texto); }
+
+/* bloco principal da lista de contas */
+.container-list {
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-g);
+  padding: var(--espaco-5);
+  box-shadow: var(--sombra-card);
+}
+
+.container-list h2 {
+  font-size: var(--texto-lg);
+  color: var(--cor-titulo);
+  margin-bottom: var(--espaco-4);
+}
+
+.fixed-accounts-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+  padding: 0;
+  margin: 0;
+}
+
+/* estilo individual de cada conta fixa na lista */
+.account-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--espaco-4);
+  border-radius: var(--raio-m);
+  border: 1px solid var(--cor-borda);
+  background-color: var(--cor-fundo-suave);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.account-item:hover {
+  background-color: var(--cor-fundo);
+  box-shadow: var(--sombra-barra);
+}
+
+.account-info {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-4);
+}
+
+.account-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--raio-m);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--texto-lg);
+}
+
+/* icones dinamicos baseados nas variáveis de categorias do grupo */
+.category-housing { background-color: #f1f5f9; color: var(--cat-moradia); }
+.category-services { background-color: #e0f2fe; color: var(--cat-transporte); }
+.category-health { background-color: #f1f5f9; color: var(--cat-saude); }
+.category-lifestyle { background-color: #fce7f3; color: var(--cat-lazer); }
+
+.account-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.account-name {
+  font-weight: 700;
+  color: var(--cor-titulo);
+  font-size: var(--texto-base);
+}
+
+.account-category {
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-suave);
+}
+
+.account-actions-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-5);
+}
+
+.account-amount {
+  font-weight: 800;
+  font-size: var(--texto-lg);
+}
+
+/* dropdown (tres Pontinhos) */
+.hover-actions-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.btn-more-actions {
+  background: transparent;
+  border: none;
+  color: var(--cor-texto-claro-suave);
+  padding: var(--espaco-2);
+  border-radius: var(--raio-total);
+  cursor: pointer;
+  font-size: var(--texto-lg);
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.account-item:hover .btn-more-actions {
+  color: var(--cor-texto-medio);
+}
+
+.btn-more-actions:hover {
+  background-color: var(--cor-borda);
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: var(--cor-fundo);
+  min-width: 130px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: var(--raio-m);
+  border: 1px solid var(--cor-borda);
+  z-index: 10;
+  padding: var(--espaco-1) 0;
+}
+
+.hover-actions-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  width: 100%;
+  padding: var(--espaco-2) var(--espaco-4);
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: var(--texto-sm);
+  color: var(--cor-texto);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  transition: background-color 0.15s;
+}
+
+.dropdown-item:hover {
+  background-color: var(--cor-fundo-suave);
+}
+
+.dropdown-item.text-danger:hover {
+  background-color: var(--cor-erro-fundo);
+  color: var(--cor-erro-texto);
+}

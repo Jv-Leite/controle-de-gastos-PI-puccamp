@@ -1,0 +1,237 @@
+/* ==========================================================================
+   PARCELAMENTOS.CSS — estilos só da página "Compras parceladas"
+   Tudo começa com .pagina-parcelamentos (classe do <body>) para não
+   mexer nas outras páginas. Cores e medidas vêm de variables.css.
+   ========================================================================== */
+
+/* ---------- Formulário ---------- */
+.pagina-parcelamentos .grade-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-4);
+}
+
+.pagina-parcelamentos .grade-form-acoes {
+  margin-top: var(--espaco-5);
+}
+
+.pagina-parcelamentos .botao-bloco {
+  width: 100%;
+}
+
+/* ---------- Seções ---------- */
+.pagina-parcelamentos .secao {
+  margin-top: var(--espaco-6);
+}
+
+.pagina-parcelamentos .secao-titulo {
+  margin-bottom: var(--espaco-4);
+  font-size: var(--texto-xl);
+  color: var(--cor-texto);
+}
+
+/* ---------- Tabela de projeção ---------- */
+.pagina-parcelamentos .tabela-wrap {
+  overflow-x: auto;
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-g);
+  box-shadow: var(--sombra-cartao);
+}
+
+.pagina-parcelamentos .tabela-projecao {
+  width: 100%;
+  min-width: 34rem;
+  border-collapse: collapse;
+  font-size: var(--texto-sm);
+}
+
+.pagina-parcelamentos .tabela-projecao caption {
+  padding: var(--espaco-3) var(--espaco-4);
+  text-align: left;
+  color: var(--cor-texto-suave);
+}
+
+.pagina-parcelamentos .tabela-projecao th,
+.pagina-parcelamentos .tabela-projecao td {
+  padding: var(--espaco-3) var(--espaco-4);
+  text-align: left;
+  border-top: 1px solid var(--cor-divisoria);
+}
+
+.pagina-parcelamentos .tabela-projecao thead th {
+  background: var(--cor-superficie-2);
+  color: var(--cor-texto-suave);
+  font-weight: 700;
+}
+
+.pagina-parcelamentos .tabela-projecao tfoot th,
+.pagina-parcelamentos .tabela-projecao tfoot td {
+  background: var(--cor-superficie-2);
+  font-weight: 700;
+}
+
+.pagina-parcelamentos .coluna-valor {
+  text-align: right;
+}
+
+.pagina-parcelamentos .tabela-projecao th.coluna-valor {
+  text-align: right;
+}
+
+.pagina-parcelamentos .valor {
+  color: var(--cor-texto);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.pagina-parcelamentos .parcela-numero {
+  display: inline-block;
+  margin-left: var(--espaco-2);
+  padding: 0 var(--espaco-2);
+  font-size: var(--texto-xs);
+  color: var(--cor-neutro-texto);
+  background: var(--cor-neutro-fundo);
+  border-radius: var(--raio-total);
+}
+
+/* ---------- Cartões das compras ---------- */
+.pagina-parcelamentos .grade-cartoes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-5);
+}
+
+.pagina-parcelamentos .compra {
+  border-top: 4px solid var(--cat-compras);
+}
+
+.pagina-parcelamentos .cartao-topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--espaco-3);
+  margin-bottom: var(--espaco-4);
+}
+
+.pagina-parcelamentos .cartao-topo h3 {
+  font-size: var(--texto-lg);
+  color: var(--cor-texto);
+}
+
+.pagina-parcelamentos .cartao-subtitulo {
+  margin-top: var(--espaco-1);
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-suave);
+}
+
+.pagina-parcelamentos .barra-legenda {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espaco-3);
+  margin-bottom: var(--espaco-2);
+  font-size: var(--texto-xs);
+  color: var(--cor-texto-suave);
+}
+
+/* Barra de progresso (<progress>) */
+.pagina-parcelamentos progress {
+  display: block;
+  width: 100%;
+  height: 10px;
+  border: 0;
+  border-radius: var(--raio-total);
+  background: var(--cor-superficie-2);
+  overflow: hidden;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.pagina-parcelamentos progress::-webkit-progress-bar {
+  background: var(--cor-superficie-2);
+  border-radius: var(--raio-total);
+}
+
+.pagina-parcelamentos progress::-webkit-progress-value {
+  background: var(--cor-botao);
+  border-radius: var(--raio-total);
+}
+
+.pagina-parcelamentos progress::-moz-progress-bar {
+  background: var(--cor-botao);
+  border-radius: var(--raio-total);
+}
+
+/* ---------- Lista de parcelas ---------- */
+.pagina-parcelamentos .parcelas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5.5rem, 1fr));
+  gap: var(--espaco-2);
+  margin-top: var(--espaco-4);
+  padding: 0;
+  list-style: none;
+}
+
+.pagina-parcelamentos .parcela {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espaco-1);
+  padding: var(--espaco-2) var(--espaco-3);
+  font-size: var(--texto-xs);
+  color: var(--cor-texto-suave);
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-m);
+}
+
+.pagina-parcelamentos .parcela strong {
+  font-size: var(--texto-sm);
+  color: var(--cor-texto);
+}
+
+.pagina-parcelamentos .parcela-paga {
+  background: var(--cor-ok-fundo);
+  border-color: var(--cor-ok-texto);
+  color: var(--cor-ok-texto);
+}
+
+.pagina-parcelamentos .parcela-paga strong {
+  color: var(--cor-ok-texto);
+}
+
+.pagina-parcelamentos .parcela-atrasada {
+  background: var(--cor-erro-fundo);
+  border-color: var(--cor-erro);
+  color: var(--cor-erro-texto);
+}
+
+.pagina-parcelamentos .parcela-atrasada strong {
+  color: var(--cor-erro-texto);
+}
+
+/* Parcela do mês atual: contorno mais forte */
+.pagina-parcelamentos .parcela-atual {
+  box-shadow: 0 0 0 2px var(--cor-marca);
+}
+
+/* ---------- Telas maiores (mobile first) ---------- */
+@media (min-width: 40rem) {
+  .pagina-parcelamentos .grade-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pagina-parcelamentos .grade-cartoes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pagina-parcelamentos .botao-bloco {
+    width: auto;
+  }
+}
+
+@media (min-width: 64rem) {
+  .pagina-parcelamentos .grade-form {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

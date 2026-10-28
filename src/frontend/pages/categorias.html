@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Categorias e limites | ContaAí</title>
+  <meta name="description" content="Crie categorias de gastos e defina um limite mensal para cada uma.">
+
+  <link rel="icon" href="../../../assets/img/icone.svg" type="image/svg+xml">
+
+  <!-- Fonte Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap">
+
+  <!-- CSS compartilhado: NÃO mude a ordem -->
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/components.css">
+  <link rel="stylesheet" href="../styles/painel.css">
+
+  <!-- CSS só desta página -->
+  <link rel="stylesheet" href="../styles/categorias.css">
+  <link rel="stylesheet" href="../styles/interativo.css">
+</head>
+
+<body class="painel">
+  <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ================= BARRA VERDE (não editar) ================= -->
+  <header class="barraverde topo">
+    <a href="visaogeral.html" class="logo-link" aria-label="ContaAí: ir para a visão geral">
+      <div class="logo-box">
+        <span class="logo-conta">Conta</span>
+        <div class="logo-linha-ai">
+          <span class="logo-ai">Aí</span>
+          <img src="../../../assets/img/icone.svg" alt="" class="logo-icone" width="22" height="25">
+        </div>
+      </div>
+    </a>
+
+    <div class="topo-direita">
+      <p class="topo-saudacao">Olá, <strong>Visitante</strong></p>
+      <span class="avatar" aria-hidden="true">V</span>
+
+      <!-- Botão ☰: só aparece no celular -->
+      <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="botao-menu-icone" aria-hidden="true"></span>
+        <span class="sr-only">Abrir menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= MENU LATERAL (não editar) ================= -->
+  <nav class="menu" id="menu-principal" aria-label="Menu principal">
+    <ul class="menu-lista">
+      <li>
+        <a class="menu-link" href="visaogeral.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+          Visão geral
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="lancamentos.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20V4M3 8l4-4 4 4M17 4v16M13 16l4 4 4-4"/></svg>
+          Lançamentos
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="categorias.html" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
+          Categorias e limites
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="contas.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 15h3"/></svg>
+          Contas fixas
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="parcelamentos.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg>
+          Parcelamentos
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="metas.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+          Metas
+        </a>
+      </li>
+    </ul>
+
+    <div class="menu-rodape">
+      <a class="menu-link" href="../index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+        Sair do perfil
+      </a>
+    </div>
+  </nav>
+
+  <!-- ================= CONTEÚDO DA SUA PÁGINA ================= -->
+  <main class="conteudo" id="conteudo">
+
+    <!-- ===== Cabeçalho da página ===== -->
+    <header class="pagina-cabecalho">
+      <div>
+        <h1>Categorias e limites</h1>
+        <p>O limite é mensal. Cada barra mostra quanto do orçamento de <time id="mes-texto" datetime="">este mês</time> já foi usado.</p>
+      </div>
+    </header>
+
+    <!-- ===== Nova categoria (abre e fecha sem JavaScript) ===== -->
+    <details class="painel-form">
+      <summary>Nova categoria</summary>
+
+      <form id="form-categoria">
+        <div class="grade-form">
+          <div class="campo">
+            <label for="cat-nome">Nome da categoria</label>
+            <input type="text" id="cat-nome" name="nome" placeholder="Ex.: Pets" maxlength="30" required>
+          </div>
+
+          <div class="campo">
+            <label for="cat-limite">Limite mensal (R$)</label>
+            <input type="number" id="cat-limite" name="limite" placeholder="Ex.: 500" min="0" step="1" inputmode="numeric">
+            <span class="campo-dica">Opcional. Deixe em branco para não ter limite.</span>
+          </div>
+        </div>
+
+        <p class="msg-erro" id="erro-categoria" role="alert" hidden></p>
+
+        <div class="form-acoes">
+          <button class="btn-primario" type="submit">Criar categoria</button>
+        </div>
+      </form>
+    </details>
+
+    <!-- ===== Legenda da barra ===== -->
+    <section class="card legenda-limite" aria-labelledby="titulo-legenda">
+      <h2 id="titulo-legenda">Como ler a barra</h2>
+      <ul>
+        <li><span class="amostra amostra-pouco"></span>Até 79% do limite: dentro do planejado</li>
+        <li><span class="amostra amostra-quase"></span>De 80% a 99%: perto do limite</li>
+        <li><span class="amostra amostra-cheia"></span>100% ou mais: limite estourado</li>
+      </ul>
+    </section>
+
+    <!-- ===== Categorias ===== -->
+    <section class="secao" aria-labelledby="titulo-categorias">
+      <h2 id="titulo-categorias" class="secao-titulo">Suas categorias</h2>
+
+      <!--
+        Barra <meter>: max = limite, value = gasto,
+        low = 80% do limite, high = limite - 0.01, optimum = 0
+      -->
+      <ul class="cards-grid" id="lista-categorias"></ul>
+      <p class="vazio" id="vazio-categorias" hidden>Nenhuma categoria cadastrada. Crie a primeira em “Nova categoria”.</p>
+    </section>
+
+    <!-- ===== Resumo do orçamento: soma de todos os limites ===== -->
+    <section class="card resumo-orcamento" aria-labelledby="titulo-resumo">
+      <h2 id="titulo-resumo">Resumo do orçamento de <span id="resumo-mes">este mês</span></h2>
+
+      <dl class="resumo-numeros">
+        <div>
+          <dt>Soma dos limites</dt>
+          <dd class="valor" id="soma-limites">R$ 0,00</dd>
+        </div>
+        <div>
+          <dt>Já gasto</dt>
+          <dd class="valor" id="ja-gasto">R$ 0,00</dd>
+        </div>
+        <div>
+          <dt>Ainda disponível</dt>
+          <dd class="valor" id="ainda-disponivel">R$ 0,00</dd>
+        </div>
+      </dl>
+
+      <meter id="meter-orcamento" min="0" max="1" low="0.8" high="0.99" optimum="0" value="0" hidden>0% do orçamento</meter>
+      <p class="categoria-nota" id="nota-orcamento">Defina um limite em alguma categoria para ver o resumo.</p>
+    </section>
+
+  </main>
+
+  <!-- JS compartilhado (menu do celular) -->
+  <script src="../scripts/menu.js"></script>
+  <script src="../scripts/dados.js"></script>
+  <script src="../scripts/categorias.js"></script>
+</body>
+</html>

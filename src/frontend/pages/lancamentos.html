@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lançamentos | ContaAí</title>
+  <meta name="description" content="Registre receitas e despesas e acompanhe o saldo previsto do mês.">
+
+  <link rel="icon" href="../../../assets/img/icone.svg" type="image/svg+xml">
+
+  <!--fonte-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap">
+
+  <!--css-->
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/components.css">
+  <link rel="stylesheet" href="../styles/painel.css">
+  <link rel="stylesheet" href="../styles/lancamentos.css">
+  <link rel="stylesheet" href="../styles/interativo.css">
+</head>
+
+<body class="painel pagina-lancamentos">
+  <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!--barra verde-->
+
+  <header class="barraverde topo">
+    <a href="visaogeral.html" class="logo-link" aria-label="ContaAí: ir para a visão geral">
+      <div class="logo-box">
+        <span class="logo-conta">Conta</span>
+        <div class="logo-linha-ai">
+          <span class="logo-ai">Aí</span>
+          <img src="../../../assets/img/icone.svg" alt="" class="logo-icone" width="22" height="25">
+        </div>
+      </div>
+    </a>
+
+    <div class="topo-direita">
+      <p class="topo-saudacao">Olá, <strong>Visitante</strong></p>
+      <span class="avatar" aria-hidden="true">V</span>
+
+      <!--botão das 3 barrinhas q só aparece no cel-->
+      <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="botao-menu-icone" aria-hidden="true"></span>
+        <span class="sr-only">Abrir menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!--menu lateral-->
+  
+  <nav class="menu" id="menu-principal" aria-label="Menu principal">
+    <ul class="menu-lista">
+      <li>
+        <a class="menu-link" href="visaogeral.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+          Visão geral
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="lancamentos.html" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20V4M3 8l4-4 4 4M17 4v16M13 16l4 4 4-4"/></svg>
+          Lançamentos
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="categorias.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
+          Categorias e limites
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="contas.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 15h3"/></svg>
+          Contas fixas
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="parcelamentos.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg>
+          Parcelamentos
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="metas.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+          Metas
+        </a>
+      </li>
+    </ul>
+
+    <div class="menu-rodape">
+      <a class="menu-link" href="../index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+        Sair do perfil
+      </a>
+    </div>
+  </nav>
+
+  <!--tudo dentro da pagina-->
+  <main class="conteudo" id="conteudo">
+
+    <!--cabeçalho-->
+    <header class="pagina-cabecalho cabecalho-com-periodo">
+      <div>
+        <h1>Lançamentos</h1>
+        <p>Receitas e despesas de <time id="periodo-texto" datetime="">este mês</time>: <span id="qtd-registros">0</span> registros.</p>
+      </div>
+
+      <form class="periodo" id="form-periodo">
+        <label for="periodo">Período</label>
+        <input type="month" id="periodo" name="periodo">
+      </form>
+    </header>
+
+    <!--novo lançamento-->
+    <details class="painel-form" open>
+      <summary>Novo lançamento</summary>
+
+      <form id="form-lancamento">
+        <div class="grade-form">
+
+          <!--tipo:despesa ou receita-->
+          <fieldset class="campo campo-segmentado">
+            <legend>Tipo</legend>
+            <div class="segmentado">
+              <input type="radio" id="tipo-despesa" name="tipo" value="despesa" checked>
+              <label for="tipo-despesa">Despesa</label>
+              <input type="radio" id="tipo-receita" name="tipo" value="receita">
+              <label for="tipo-receita">Receita</label>
+            </div>
+          </fieldset>
+
+          <div class="campo">
+            <label for="lan-descricao">Descrição</label>
+            <input type="text" id="lan-descricao" name="descricao" placeholder="Ex.: Mercado da semana" maxlength="60" required>
+          </div>
+
+          <div class="campo">
+            <label for="lan-valor">Valor (R$)</label>
+            <input type="number" id="lan-valor" name="valor" placeholder="0,00" min="0.01" step="0.01" inputmode="decimal" required>
+          </div>
+
+          <div class="campo">
+            <label for="lan-data">Data</label>
+            <input type="date" id="lan-data" name="data" required>
+          </div>
+
+          <div class="campo">
+            <label for="lan-categoria">Categoria</label>
+            <select id="lan-categoria" name="categoria" required>
+              <option value="" selected disabled>Escolha uma categoria</option>
+            </select>
+          </div>
+
+          <!--situação: pago ou pendente-->
+          <fieldset class="campo campo-segmentado">
+            <legend>Situação</legend>
+            <div class="segmentado">
+              <input type="radio" id="sit-pago" name="situacao" value="pago" checked>
+              <label for="sit-pago">Pago</label>
+              <input type="radio" id="sit-pendente" name="situacao" value="pendente">
+              <label for="sit-pendente">Pendente</label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="form-acoes">
+          <button class="btn-primario" type="submit">Salvar lançamento</button>
+          <button class="btn-secundario" type="reset">Limpar</button>
+        </div>
+      </form>
+    </details>
+
+    <!--filtros e tabela-->
+    <div class="lancamentos-area">
+
+      <input class="filtro-radio" type="radio" name="filtro" id="f-todos" checked>
+      <input class="filtro-radio" type="radio" name="filtro" id="f-receitas">
+      <input class="filtro-radio" type="radio" name="filtro" id="f-despesas">
+      <input class="filtro-radio" type="radio" name="filtro" id="f-pendentes">
+
+      <div class="filtros" role="group" aria-label="Filtrar lançamentos">
+        <label for="f-todos">Todos</label>
+        <label for="f-receitas">Receitas</label>
+        <label for="f-despesas">Despesas</label>
+        <label for="f-pendentes">Pendentes</label>
+      </div>
+
+      <section class="card tabela-card" aria-labelledby="titulo-lancamentos">
+        <h2 id="titulo-lancamentos" class="tabela-titulo">Lançamentos do mês</h2>
+
+        <div class="tabela-rolagem">
+          <table class="tabela">
+            <thead>
+              <tr>
+                <th scope="col">Descrição</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Data</th>
+                <th scope="col">Situação</th>
+                <th scope="col" class="col-valor">Valor</th>
+                <th scope="col" class="col-acoes">Ações</th>
+              </tr>
+            </thead>
+
+            <tbody id="lista-lancamentos"></tbody>
+
+            <tfoot>
+              <tr class="total-receitas">
+                <th scope="row" colspan="4">Total de receitas</th>
+                <td class="col-valor valor-receita" id="total-receitas">R$ 0,00</td>
+                <td></td>
+              </tr>
+              <tr class="total-despesas">
+                <th scope="row" colspan="4">Total de despesas</th>
+                <td class="col-valor" id="total-despesas">R$ 0,00</td>
+                <td></td>
+              </tr>
+              <tr class="total-saldo">
+                <th scope="row" colspan="4">Saldo previsto do mês</th>
+                <td class="col-valor" id="total-saldo">R$ 0,00</td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <p class="vazio" id="vazio-lancamentos">Nenhum lançamento neste mês. Use “Novo lançamento” para registrar o primeiro.</p>
+      </section>
+    </div>
+
+  </main>
+
+  <!--java script-->
+  <script src="../scripts/menu.js"></script>
+  <script src="../scripts/dados.js"></script>
+  <script src="../scripts/lancamentos.js"></script>
+</body>
+</html>

@@ -1,0 +1,326 @@
+.pagina-lancamentos {
+  --l-verde: #16c55e;
+  --l-verde-botao: #2f9e44;
+  --l-verde-escuro: #15803d;
+  --l-verde-claro: #e7f9ee;
+  --l-escuro: #1e293b;
+  --l-texto: #1e293b;
+  --l-suave: #64748b;
+  --l-borda: #e2e8f0;
+  --l-fundo-suave: #f1f5f9;
+  --l-vermelho: #b91c1c;
+  --l-vermelho-claro: #fde8e8;
+  --l-amarelo: #92400e;
+  --l-amarelo-claro: #fdf1c9;
+}
+
+/*cabeçalho */
+.cabecalho-com-periodo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.periodo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.periodo label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--l-texto);
+}
+
+.periodo input {
+  font: inherit;
+  padding: 10px 14px;
+  border: 1.5px solid var(--l-borda);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--l-texto);
+}
+
+/* ---------- Formulário ---------- */
+.pagina-lancamentos .grade-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px 20px;
+}
+
+.pagina-lancamentos .campo,
+.pagina-lancamentos fieldset.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.pagina-lancamentos .campo label,
+.pagina-lancamentos .campo legend {
+  padding: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--l-texto);
+}
+
+.pagina-lancamentos .campo input[type="text"],
+.pagina-lancamentos .campo input[type="number"],
+.pagina-lancamentos .campo input[type="date"],
+.pagina-lancamentos .campo select {
+  font: inherit;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--l-borda);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--l-texto);
+}
+
+.pagina-lancamentos .campo input:focus-visible,
+.pagina-lancamentos .campo select:focus-visible {
+  outline: 3px solid rgba(22, 197, 94, 0.35);
+  border-color: var(--l-verde);
+}
+
+/* ---------- Controle segmentado (radios) ---------- */
+.segmentado {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 10px;
+  background: var(--l-fundo-suave);
+}
+
+.segmentado input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.segmentado label {
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  color: var(--l-suave);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.segmentado input:checked + label {
+  background: #fff;
+  color: var(--l-texto);
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.15);
+}
+
+.segmentado input:focus-visible + label {
+  outline: 3px solid rgba(22, 197, 94, 0.45);
+}
+
+/* ---------- Botões do formulário ---------- */
+.pagina-lancamentos .form-acoes {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.btn-secundario {
+  font: inherit;
+  font-weight: 700;
+  padding: 12px 22px;
+  border: 1.5px solid var(--l-borda);
+  border-bottom-width: 3px;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--l-texto);
+  cursor: pointer;
+}
+
+.btn-secundario:hover { background: var(--l-fundo-suave); }
+
+/* ---------- Filtros (só CSS) ---------- */
+.filtro-radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0 16px;
+}
+
+.filtros label {
+  padding: 10px 20px;
+  border: 1px solid var(--l-borda);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--l-suave);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.filtros label:hover { background: var(--l-fundo-suave); }
+
+#f-todos:checked ~ .filtros label[for="f-todos"],
+#f-receitas:checked ~ .filtros label[for="f-receitas"],
+#f-despesas:checked ~ .filtros label[for="f-despesas"],
+#f-pendentes:checked ~ .filtros label[for="f-pendentes"] {
+  background: var(--l-escuro);
+  border-color: var(--l-escuro);
+  color: #fff;
+  font-weight: 700;
+}
+
+#f-todos:focus-visible ~ .filtros label[for="f-todos"],
+#f-receitas:focus-visible ~ .filtros label[for="f-receitas"],
+#f-despesas:focus-visible ~ .filtros label[for="f-despesas"],
+#f-pendentes:focus-visible ~ .filtros label[for="f-pendentes"] {
+  outline: 3px solid rgba(22, 197, 94, 0.45);
+  outline-offset: 2px;
+}
+
+/* esconde as linhas que não combinam com o filtro */
+#f-receitas:checked ~ .tabela-card tbody tr:not([data-tipo="receita"]),
+#f-despesas:checked ~ .tabela-card tbody tr:not([data-tipo="despesa"]),
+#f-pendentes:checked ~ .tabela-card tbody tr:not([data-pendente]) {
+  display: none;
+}
+
+/* ---------- Tabela ---------- */
+.tabela-card { padding: 0; overflow: hidden; }
+
+.tabela-titulo {
+  margin: 0;
+  padding: 20px 20px 18px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--l-texto);
+}
+
+.tabela-rolagem { overflow-x: auto; }
+
+.tabela {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  color: var(--l-texto);
+}
+
+.tabela thead th {
+  padding: 14px 20px;
+  background: #f8fafc;
+  border-top: 1px solid var(--l-borda);
+  border-bottom: 1px solid var(--l-borda);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: left;
+  color: var(--l-suave);
+}
+
+.tabela tbody th,
+.tabela tbody td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--l-borda);
+  text-align: left;
+  font-weight: 400;
+}
+
+.tabela tbody th { font-weight: 500; }
+
+.tabela .col-valor { text-align: right; white-space: nowrap; font-weight: 500; }
+.tabela thead .col-valor { font-weight: 700; }
+
+.parcela {
+  margin-left: 6px;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--l-suave);
+}
+
+.valor-despesa { color: var(--l-texto); }
+.valor-receita { color: var(--l-verde-escuro); }
+
+/* rodapé com totais */
+.tabela tfoot th,
+.tabela tfoot td {
+  padding: 16px 20px;
+  background: #f1f5f9;
+  border-bottom: 1px solid var(--l-borda);
+  text-align: left;
+  font-weight: 700;
+}
+
+.tabela tfoot .col-valor { text-align: right; }
+.tabela tfoot tr:last-child th,
+.tabela tfoot tr:last-child td { border-bottom: 0; }
+
+/* ---------- Categoria com bolinha ---------- */
+.cat {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cat .bolinha {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--cor, #94a3b8);
+  flex: none;
+}
+
+.cat-alimentacao { --cor: #16c55e; }
+.cat-moradia     { --cor: #1e293b; }
+.cat-transporte  { --cor: #0ea5e9; }
+.cat-lazer       { --cor: #ec6fae; }
+.cat-saude       { --cor: #94a3b8; }
+.cat-compras     { --cor: #6366f1; }
+.cat-salario     { --cor: #2f9e44; }
+.cat-extra       { --cor: #86efac; }
+
+/* ---------- Selos de situação ---------- */
+.selo {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.selo-pago     { background: var(--l-verde-claro);    color: var(--l-verde-escuro); }
+.selo-recebido { background: var(--l-verde-claro);    color: var(--l-verde-escuro); }
+.selo-pendente { background: var(--l-amarelo-claro);  color: var(--l-amarelo); }
+.selo-atrasado { background: var(--l-vermelho-claro); color: var(--l-vermelho); }
+
+/* ---------- Tablet / celular ---------- */
+@media (max-width: 900px) {
+  .pagina-lancamentos .grade-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .pagina-lancamentos .grade-form { grid-template-columns: 1fr; }
+  .periodo, .periodo input { width: 100%; }
+  .filtros label { padding: 9px 16px; }
+}

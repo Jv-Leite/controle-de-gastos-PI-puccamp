@@ -1,10 +1,10 @@
-// Visão geral: janela de configuração do perfil, resumo do mês e gráficos.
+//visão geral
 (() => {
   'use strict';
   const { contasFixas, resumoDoMes, gastosPorCategoria, mesAtual, somarMeses,
     mesCurto, moeda, escapar, classeCategoria } = ContaAi;
 
-  /* ----- janela de configuração do perfil (primeiro acesso) ----- */
+  /*modal de config do perfil*/
 
   const modal = document.getElementById('modal-perfil');
   const formulario = document.getElementById('form-perfil');
@@ -23,14 +23,13 @@
       const contaValor = parseFloat(document.getElementById('conta-valor').value);
       const contaVencimento = parseInt(document.getElementById('conta-vencimento').value, 10);
 
-      // guarda também no formato antigo, caso alguém ainda use
       localStorage.setItem('dadosFinanceiros', JSON.stringify({
         renda: { valor: renda, dia: diaRecebimento },
         contaFixa: { nome: contaNome, valor: contaValor, vencimento: contaVencimento }
       }));
 
-      // a renda vira uma receita fixa e a conta vira uma despesa fixa
-      // se já existir uma com o mesmo nome e tipo, troca em vez de somar
+      //a renda vira uma receita fixa e a conta vira uma despesa fixa
+      // se já existir uma com o mesmo nome e tipo vai trocar em vez de somar
       function salvarFixa(dados) {
         contasFixas.todos()
           .filter(c => c.nome === dados.nome && c.tipo === dados.tipo)
@@ -57,7 +56,7 @@
     });
   }
 
-  /* ----- resumo do mês ----- */
+  /*resumo do mes*/
 
   function desenharResumo() {
     const r = resumoDoMes(mesAtual());
@@ -67,10 +66,10 @@
     document.getElementById('total-a-pagar').textContent = moeda(r.aPagar);
   }
 
-  /* ----- gráficos simples (barras feitas com HTML/CSS) ----- */
+  /*grafico*/
 
   function desenharGraficos() {
-    // gastos por categoria no mês
+    //gastos por categoria no mês
     const gastos = Object.entries(gastosPorCategoria(mesAtual()))
       .sort((a, b) => b[1] - a[1]);
     const total = gastos.reduce((s, [, v]) => s + v, 0);
@@ -87,7 +86,7 @@
           </li>`;
         }).join('')}</ul>`;
 
-    // receitas x despesas dos últimos 6 meses
+    //receitas e despesas nos últimos 6 meses
     const meses = [];
     for (let i = 5; i >= 0; i--) meses.push(somarMeses(mesAtual(), -i));
     const dados = meses.map(m => ({ mes: m, ...resumoDoMes(m, m >= mesAtual()) }));

@@ -1,4 +1,4 @@
-// Lançamentos: cadastrar, listar por mês, mudar a situação e excluir.
+//lançamentos
 (() => {
   'use strict';
   const { lancamentos, categorias, hoje, mesAtual, nomeMes, formatarData,
@@ -12,13 +12,13 @@
   const corpo = document.getElementById('lista-lancamentos');
   const avisoVazio = document.getElementById('vazio-lancamentos');
 
-  /* ----- formulário ----- */
+  /*forms*/
 
   function tipoEscolhido() {
     return formNovo.querySelector('input[name="tipo"]:checked').value;
   }
 
-  // Despesa e receita têm categorias diferentes.
+  //despesa e receitas tem categorias diferentes
   function preencherCategorias() {
     const tipo = tipoEscolhido();
     const opcoes = categorias.todos()
@@ -37,7 +37,7 @@
   formNovo.querySelectorAll('input[name="tipo"]').forEach(radio =>
     radio.addEventListener('change', preencherCategorias));
 
-  // "Limpar" volta aos valores iniciais (data de hoje etc.)
+  //volta aos valores inicias. data,etc
   formNovo.addEventListener('reset', () => setTimeout(prepararFormulario, 0));
 
   formNovo.addEventListener('submit', evento => {
@@ -56,12 +56,12 @@
       situacao: dados.get('situacao')
     });
 
-    campoPeriodo.value = data.slice(0, 7); // mostra o mês do novo lançamento
+    campoPeriodo.value = data.slice(0, 7); //mostra o mês do novo lançamento
     formNovo.reset();
     desenhar();
   });
 
-  /* ----- tabela ----- */
+  /*tabela*/
 
   function seloDe(l) {
     if (l.situacao === 'pago') {
@@ -102,14 +102,14 @@
     corpo.innerHTML = itens.map(linha).join('');
     avisoVazio.hidden = itens.length > 0;
 
-    // textos que mudam com o mês
+    //textos que mudam com o mês
     const nome = nomeMes(mes);
     document.getElementById('periodo-texto').textContent = nome;
     document.getElementById('periodo-texto').setAttribute('datetime', mes);
     document.getElementById('titulo-lancamentos').textContent = `Lançamentos de ${nome}`;
     document.getElementById('qtd-registros').textContent = itens.length;
 
-    // totais do rodapé
+    //totais do rodapé
     const receitas = itens.filter(l => l.tipo === 'receita').reduce((s, l) => s + l.valor, 0);
     const despesas = itens.filter(l => l.tipo === 'despesa').reduce((s, l) => s + l.valor, 0);
     document.getElementById('total-receitas').textContent = moeda(receitas);
@@ -135,7 +135,7 @@
   campoPeriodo.addEventListener('change', desenhar);
   formPeriodo.addEventListener('submit', e => e.preventDefault());
 
-  /* ----- início ----- */
+  /*inicio*/
   campoPeriodo.value = mesAtual();
   prepararFormulario();
   desenhar();

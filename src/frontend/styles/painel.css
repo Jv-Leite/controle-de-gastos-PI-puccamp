@@ -176,15 +176,7 @@
   font-size: var(--texto-2xl);
 }
 
-.pagina-cabecalho h1::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 4px;
-  margin-top: var(--espaco-2);
-  background-color: var(--cor-marca);
-  border-radius: 2px;
-}
+
 
 .pagina-cabecalho p {
   max-width: 38rem;

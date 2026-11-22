@@ -1,0 +1,97 @@
+/* Estilos das partes que o JavaScript cria (listas, botões de ação,
+   mensagens e janela de formulário). Usado por todas as telas do painel. */
+
+/* mensagem quando ainda não há nada cadastrado */
+.vazio {
+  padding: var(--espaco-6) var(--espaco-4);
+  text-align: center;
+  color: var(--cor-texto-suave);
+  background-color: var(--cor-fundo-suave);
+  border: 1px dashed var(--cor-borda);
+  border-radius: var(--raio-m);
+}
+
+.msg-erro {
+  margin-top: var(--espaco-2);
+  color: var(--cor-erro-texto);
+  font-size: var(--texto-sm);
+  font-weight: 500;
+}
+
+/* botões pequenos dentro de tabelas e cartões */
+.btn-linha {
+  padding: 4px 10px;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-m);
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font: inherit;
+  font-size: var(--texto-sm);
+  cursor: pointer;
+}
+
+.btn-linha:hover { background-color: var(--cor-fundo-suave); }
+
+.btn-linha-perigo:hover {
+  background-color: var(--cor-erro-fundo);
+  color: var(--cor-erro-texto);
+}
+
+.col-acoes {
+  white-space: nowrap;
+  text-align: right;
+}
+
+.col-acoes .btn-linha + .btn-linha { margin-left: var(--espaco-1); }
+
+.card-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-2);
+  margin-top: var(--espaco-4);
+}
+
+/* menu de três pontinhos também abre com toque/clique */
+.hover-actions-dropdown.aberto .dropdown-menu { display: block; }
+
+/* parcelas clicáveis (marcar como paga) */
+.parcela[data-id] { cursor: pointer; }
+
+/* janela (dialog) de formulário */
+.dialog {
+  width: min(92vw, 480px);
+  padding: var(--espaco-5);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-g);
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
+}
+
+.dialog::backdrop {
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(3px);
+}
+
+.dialog h2 { margin-bottom: var(--espaco-4); }
+
+.dialog .campo { margin-bottom: var(--espaco-4); }
+
+/* barras simples dos gráficos da visão geral */
+.barra {
+  display: block;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--cor-borda);
+  overflow: hidden;
+}
+
+.barra-preench {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--cor-cat, #94a3b8);
+}
+
+.barra-receita { background: var(--cor-marca); }
+.barra-despesa { background: #f87171; }

@@ -43,6 +43,8 @@ controle-de-gastos-PI-puccamp/
     └── scripts/
         ├── menu.js              → menu no celular              (compartilhado)
         └── NOME-DA-PAGINA.js    → se a página precisar         (de cada pessoa)
+
+        -acho q vai ter que mudar aqui 
 ```
 
 ## Divisão do trabalho
@@ -51,8 +53,8 @@ controle-de-gastos-PI-puccamp/
 |---|---|---|---|
 | Tela inicial e login | `tela-inicial1` | `index.html`, `pages/login.html`, `styles/inicio.css`, `styles/login.css` | Gustavo Crepaldi |
 | Visão geral (dashboard) | `feature/visao-geral` | `pages/dashboard.html`, `styles/dashboard.css` | João Vitor Leite |
-| Lançamentos | `feature/lancamentos` | `pages/lancamentos.html`, `styles/lancamentos.css` | A fazer |
+| Lançamentos | `feature/lancamentos` | `pages/lancamentos.html`, `styles/lancamentos.css` | 'Nome aqui' |
 | Categorias e limites | `feature/categorias` | `pages/categorias.html`, `styles/categorias.css` | Leonardo Newman |
 | Contas fixas | `feature/contas-fixas` | `pages/contas.html`, `styles/contas.css` | Matheus Finardi |
 | Parcelamentos | `feature/parcelamentos` | `pages/parcelamentos.html`, `styles/parcelamentos.css` | Felipe Righetto |
-| Metas | `feature/metas` | `pages/metas.html`, `styles/metas.css` | A fazer |
+| Metas | `feature/metas` | `pages/metas.html`, `styles/metas.css` | Leonardo Newman |

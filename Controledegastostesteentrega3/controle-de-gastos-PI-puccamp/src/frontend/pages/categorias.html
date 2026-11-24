@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Categorias e limites | ContaAí</title>
+  <meta name="description" content="Crie categorias e defina um limite mensal de gastos para cada uma.">
+
+  <link rel="icon" href="../../../assets/img/icone.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap">
+
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/components.css">
+  <link rel="stylesheet" href="../styles/painel.css">
+  <link rel="stylesheet" href="../styles/categorias.css">
+</head>
+
+<body class="painel">
+  <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="barraverde topo">
+    <a href="visaogeral.html" class="logo-link" aria-label="ContaAí: ir para a visão geral">
+      <div class="logo-box">
+        <span class="logo-conta">Conta</span>
+        <div class="logo-linha-ai">
+          <span class="logo-ai">Aí</span>
+          <img src="../../../assets/img/icone.svg" alt="" class="logo-icone" width="22" height="25">
+        </div>
+      </div>
+    </a>
+
+    <div class="topo-direita">
+      <p class="topo-saudacao">Olá, <strong>Visitante</strong></p>
+      <span class="avatar" aria-hidden="true">V</span>
+
+      <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="botao-menu-icone" aria-hidden="true"></span>
+        <span class="sr-only">Abrir menu</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="menu" id="menu-principal" aria-label="Menu principal">
+    <ul class="menu-lista">
+      <li>
+        <a class="menu-link" href="visaogeral.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+          Visão geral
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="lancamentos.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20V4M3 8l4-4 4 4M17 4v16M13 16l4 4 4-4"/></svg>
+          Lançamentos
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="categorias.html" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
+          Categorias e limites
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="contas.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 15h3"/></svg>
+          Contas fixas
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="parcelamentos.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg>
+          Parcelamentos
+        </a>
+      </li>
+      <li>
+        <a class="menu-link" href="metas.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+          Metas
+        </a>
+      </li>
+    </ul>
+
+    <div class="menu-rodape">
+      <a class="menu-link" href="../index.html" data-sair>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+        Sair do perfil
+      </a>
+    </div>
+  </nav>
+
+  <main class="conteudo" id="conteudo">
+    <header class="pagina-cabecalho">
+      <div>
+        <h1>Categorias e limites</h1>
+        <p>Defina um teto mensal por categoria e veja o quanto já foi usado.</p>
+      </div>
+      <form class="periodo" id="form-periodo">
+        <label for="periodo">Período</label>
+        <input type="month" id="periodo" name="periodo" required>
+      </form>
+    </header>
+
+    <section class="card resumo-orcamento" aria-labelledby="titulo-resumo">
+      <h2 id="titulo-resumo">Orçamento de <span id="resumo-mes">este mês</span></h2>
+
+      <dl class="resumo-numeros">
+        <div>
+          <dt>Soma dos limites</dt>
+          <dd class="valor" id="soma-limites">R$ 0,00</dd>
+        </div>
+        <div>
+          <dt>Já gasto</dt>
+          <dd class="valor valor-negativo" id="ja-gasto">R$ 0,00</dd>
+        </div>
+        <div>
+          <dt>Ainda disponível</dt>
+          <dd class="valor" id="ainda-disponivel">R$ 0,00</dd>
+        </div>
+      </dl>
+
+      <meter id="meter-orcamento" min="0" max="1" low="0.8" high="0.99" optimum="0" value="0" hidden>0% do orçamento</meter>
+      <p class="categoria-nota" id="nota-orcamento">Defina um limite em alguma categoria para ver o resumo.</p>
+    </section>
+
+    <details class="painel-form">
+      <summary>Nova categoria</summary>
+
+      <form id="form-categoria">
+        <div class="grade-form">
+          <div class="campo">
+            <label for="cat-nome">Nome da categoria</label>
+            <input type="text" id="cat-nome" name="nome" placeholder="Ex.: Pets" maxlength="30" required>
+          </div>
+
+          <div class="campo">
+            <label for="cat-tipo">Tipo</label>
+            <select id="cat-tipo" name="tipo">
+              <option value="despesa">Despesa</option>
+              <option value="receita">Receita</option>
+            </select>
+          </div>
+
+          <div class="campo" id="campo-limite">
+            <label for="cat-limite">Limite mensal (R$)</label>
+            <input type="number" id="cat-limite" name="limite" placeholder="Ex.: 500" min="0" step="0.01" inputmode="decimal">
+            <span class="campo-dica">Opcional. Em branco, a categoria fica sem limite.</span>
+          </div>
+
+          <div class="campo">
+            <label for="cat-cor">Cor</label>
+            <input type="color" id="cat-cor" name="cor">
+          </div>
+        </div>
+
+        <p class="msg-erro" id="erro-categoria" role="alert" hidden></p>
+
+        <div class="form-acoes">
+          <button class="btn-primario" type="submit">Criar categoria</button>
+        </div>
+      </form>
+    </details>
+
+    <section class="secao" aria-labelledby="titulo-despesas">
+      <div class="secao-topo">
+        <h2 id="titulo-despesas" class="secao-titulo">Categorias de despesa</h2>
+        <ul class="legenda-limite" aria-label="Como ler a barra">
+          <li><span class="amostra amostra-ok"></span>até 79%</li>
+          <li><span class="amostra amostra-alerta"></span>80% a 99%</li>
+          <li><span class="amostra amostra-erro"></span>100% ou mais</li>
+        </ul>
+      </div>
+      <ul class="cards-grid" id="lista-despesas"></ul>
+      <p class="vazio" id="vazio-despesas" hidden>Nenhuma categoria de despesa. Crie a primeira em “Nova categoria”.</p>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-receitas">
+      <h2 id="titulo-receitas" class="secao-titulo">Categorias de receita</h2>
+      <ul class="cards-grid" id="lista-receitas"></ul>
+      <p class="vazio" id="vazio-receitas" hidden>Nenhuma categoria de receita.</p>
+    </section>
+  </main>
+
+  <dialog class="janela" id="janela-categoria" aria-labelledby="janela-categoria-titulo">
+    <form id="form-editar">
+      <h2 id="janela-categoria-titulo">Editar categoria</h2>
+      <input type="hidden" id="editar-id">
+      <div class="campo">
+        <label for="editar-nome">Nome</label>
+        <input type="text" id="editar-nome" maxlength="30" required>
+      </div>
+      <div class="campo" id="campo-editar-limite">
+        <label for="editar-limite">Limite mensal (R$)</label>
+        <input type="number" id="editar-limite" min="0" step="0.01" inputmode="decimal">
+        <span class="campo-dica">Em branco para tirar o limite.</span>
+      </div>
+      <div class="campo">
+        <label for="editar-cor">Cor</label>
+        <input type="color" id="editar-cor">
+      </div>
+      <p class="msg-erro" id="erro-editar" role="alert" hidden></p>
+      <div class="form-acoes">
+        <button class="btn-secundario" type="button" data-fechar>Cancelar</button>
+        <button class="btn-primario" type="submit">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="../scripts/auth.js"></script>
+  <script src="../scripts/dados.js"></script>
+  <script src="../scripts/ui.js"></script>
+  <script src="../scripts/menu.js"></script>
+  <script src="../scripts/categorias.js"></script>
+</body>
+</html>

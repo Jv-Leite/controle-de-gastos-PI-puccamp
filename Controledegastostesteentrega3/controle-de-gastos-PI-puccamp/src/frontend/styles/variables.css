@@ -31,14 +31,11 @@
   --cor-erro-fundo: #fee2e2;
   --cor-erro-texto: #991b1b;
 
-  --cat-moradia: #1e293b;
-  --cat-alimentacao: #00e676;
-  --cat-compras: #6366f1;
-  --cat-transporte: #0ea5e9;
-  --cat-lazer: #f472b6;
-  --cat-saude: #94a3b8;
-  --cat-salario: #00c853;
-  --cat-extra: #86efac;
+  /* cores únicas para valores em dinheiro */
+  --cor-positivo: #15803d;
+  --cor-negativo: #dc2626;
+  --cor-positivo-fundo: #dcfce7;
+  --cor-negativo-fundo: #fee2e2;
 
   --fonte: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 

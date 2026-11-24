@@ -17,7 +17,6 @@
   <link rel="stylesheet" href="../styles/main.css">
   <link rel="stylesheet" href="../styles/components.css">
   <link rel="stylesheet" href="../styles/painel.css">
-
   <link rel="stylesheet" href="../styles/NOME-DA-PAGINA.css">
 </head>
 
@@ -25,7 +24,7 @@
   <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
 
   <header class="barraverde topo">
-    <a href="dashboard.html" class="logo-link" aria-label="ContaAí: ir para a visão geral">
+    <a href="visaogeral.html" class="logo-link" aria-label="ContaAí: ir para a visão geral">
       <div class="logo-box">
         <span class="logo-conta">Conta</span>
         <div class="logo-linha-ai">
@@ -49,7 +48,7 @@
   <nav class="menu" id="menu-principal" aria-label="Menu principal">
     <ul class="menu-lista">
       <li>
-        <a class="menu-link" href="dashboard.html">
+        <a class="menu-link" href="visaogeral.html">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
           Visão geral
         </a>
@@ -87,7 +86,7 @@
     </ul>
 
     <div class="menu-rodape">
-      <a class="menu-link" href="../index.html">
+      <a class="menu-link" href="../index.html" data-sair>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
         Sair do perfil
       </a>
@@ -95,16 +94,17 @@
   </nav>
 
   <main class="conteudo" id="conteudo">
-
     <header class="pagina-cabecalho">
       <div>
         <h1>Nome da página</h1>
-        <p>Uma frase explicando o que a pessoa faz aqui.</p>
       </div>
     </header>
-
   </main>
 
+
+  <script src="../scripts/auth.js"></script>
+  <script src="../scripts/dados.js"></script>
+  <script src="../scripts/ui.js"></script>
   <script src="../scripts/menu.js"></script>
 </body>
 </html>

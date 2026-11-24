@@ -1,0 +1,105 @@
+/* Categorias e limites */
+
+.secao-topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-3);
+}
+
+.legenda-limite {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-4);
+  font-size: var(--texto-xs);
+  color: var(--cor-texto-suave);
+}
+
+.legenda-limite li {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-1);
+}
+
+.amostra {
+  width: 18px;
+  height: 8px;
+  border-radius: var(--raio-total);
+}
+
+.amostra-ok     { background-color: var(--cor-ok); }
+.amostra-alerta { background-color: var(--cor-alerta); }
+.amostra-erro   { background-color: var(--cor-erro); }
+
+.categoria {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+  height: 100%;
+}
+
+.categoria h3 {
+  margin: 0;
+  font-size: var(--texto-lg);
+}
+
+.categoria .bolinha {
+  width: 12px;
+  height: 12px;
+}
+
+.card .categoria-gasto {
+  font-size: var(--texto-sm);
+}
+
+.card .categoria-gasto .valor {
+  font-size: var(--texto-xl);
+  color: var(--cor-titulo);
+}
+
+.card .categoria-nota,
+.categoria-nota {
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-suave);
+}
+
+.categoria-nota strong {
+  color: var(--cor-titulo);
+}
+
+.categoria .acoes-linha {
+  margin-top: auto;
+}
+
+.resumo-orcamento {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+}
+
+.resumo-orcamento h2 {
+  font-size: var(--texto-lg);
+}
+
+.resumo-numeros {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-3);
+}
+
+.resumo-numeros dt {
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-suave);
+}
+
+.resumo-numeros dd {
+  font-size: var(--texto-xl);
+  color: var(--cor-titulo);
+}
+
+@media (min-width: 600px) {
+  .resumo-numeros {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

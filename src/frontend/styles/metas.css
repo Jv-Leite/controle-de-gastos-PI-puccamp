@@ -1,0 +1,186 @@
+/* metas.css: Metas: cartão da economia acumulada e cartões das metas. */
+
+/* cartão da economia */
+.resumo-economia {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+}
+
+/* conta visual: recebido − pago = economia */
+.economia-conta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+}
+
+.economia-parcelas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--espaco-3) var(--espaco-5);
+}
+
+.economia-parcelas dt {
+  margin-bottom: var(--espaco-1);
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-suave);
+}
+
+.economia-parcelas dd {
+  font-size: var(--texto-xl);
+  color: var(--cor-titulo);
+}
+
+/* sinais − e = entre os números */
+.economia-sinal {
+  padding-bottom: 4px;
+  font-size: var(--texto-lg);
+  color: var(--cor-texto-claro-suave);
+}
+
+/* quanto ainda dá para guardar */
+.economia-disponivel {
+  padding: var(--espaco-3) var(--espaco-4);
+  border-radius: var(--raio-m);
+  background-color: var(--cor-fundo-suave);
+  border: 1px solid var(--cor-borda);
+}
+
+.card .economia-disponivel-rotulo {
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-suave);
+}
+
+.economia-disponivel-valor {
+  font-size: var(--texto-2xl);
+  color: var(--cor-titulo);
+}
+
+.card .economia-texto {
+  font-size: var(--texto-sm);
+}
+
+/* título com o ícone de ajuda (i) ao lado */
+.titulo-ajuda {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+}
+
+.ajuda {
+  position: relative;
+  display: inline-flex;
+}
+
+/* botão redondo "i" */
+.ajuda-botao {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--cor-texto-suave);
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--cor-texto-suave);
+  font-size: var(--texto-xs);
+  font-weight: 700;
+  line-height: 1;
+  cursor: help;
+}
+
+/* balão: escondido até passar o mouse ou focar o botão (toque no celular) */
+.ajuda-texto {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  z-index: 10;
+  width: max-content;
+  max-width: 240px;
+  padding: var(--espaco-2) var(--espaco-3);
+  border-radius: var(--raio-m);
+  background-color: var(--cor-titulo);
+  color: var(--cor-branco);
+  font-size: var(--texto-xs);
+  line-height: 1.4;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s ease, visibility 0.15s;
+}
+
+.ajuda:hover .ajuda-texto,
+.ajuda-botao:focus + .ajuda-texto {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* estado vazio: botão abaixo do texto */
+.vazio .btn-primario {
+  margin-top: var(--espaco-3);
+}
+
+/* cartão de meta */
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+  height: 100%;
+}
+
+.meta-topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--espaco-2);
+}
+
+.meta h3 {
+  margin: 0;
+  font-size: var(--texto-lg);
+}
+
+.card .meta-prazo {
+  font-size: var(--texto-sm);
+}
+
+.card .meta-valor {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--espaco-2);
+}
+
+.card .meta-valor .valor {
+  font-size: var(--texto-2xl);
+  color: var(--cor-titulo);
+}
+
+.card .meta-nota {
+  font-size: var(--texto-sm);
+}
+
+.meta-nota strong {
+  color: var(--cor-titulo);
+}
+
+.meta .acoes-linha {
+  margin-top: auto;
+}
+
+/* celular: esconde os sinais */
+@media (max-width: 599px) {
+  .economia-sinal {
+    display: none;
+  }
+}
+
+/* telas maiores: conta numa linha só */
+@media (min-width: 768px) {
+  .economia-conta {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}

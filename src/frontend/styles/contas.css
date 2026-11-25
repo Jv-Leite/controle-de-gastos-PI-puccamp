@@ -1,0 +1,96 @@
+/* contas.css: Contas fixas: lista de contas. */
+
+/* cartão que envolve a lista */
+.lista-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+}
+
+.lista-contas {
+  display: flex;
+  flex-direction: column;
+}
+
+/* cada conta: info à esquerda, valor e botões à direita */
+.conta-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+  padding: var(--espaco-4) 0;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.conta-info {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-3);
+  min-width: 0;
+}
+
+/* círculo com a inicial, na cor da categoria (--cor-cat) */
+.conta-icone {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--cor-cat);
+  color: var(--cor-branco);
+  font-weight: 700;
+}
+
+.conta-textos {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.conta-nome {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espaco-2);
+  font-weight: 700;
+  color: var(--cor-titulo);
+}
+
+.conta-detalhe {
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-suave);
+}
+
+/* valor e botões */
+.conta-direita {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-3);
+}
+
+.conta-direita .valor {
+  font-size: var(--texto-lg);
+}
+
+/* formulário em 2 colunas */
+.grade-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espaco-3);
+}
+
+/* telas maiores: tudo numa linha só */
+@media (min-width: 720px) {
+  .conta-item {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .conta-direita {
+    justify-content: flex-end;
+  }
+}

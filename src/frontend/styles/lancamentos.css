@@ -1,0 +1,38 @@
+/* lancamentos.css: Lançamentos: cartão da tabela do mês. */
+
+.tabela-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+  padding: var(--espaco-4);
+}
+
+/* título da tabela + filtros */
+.tabela-topo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+}
+
+.tabela-card .tabela {
+  min-width: 720px;
+}
+
+/* descrição (primeira coluna) */
+.tabela-card .tabela th[scope="row"] {
+  font-weight: 500;
+  color: var(--cor-titulo);
+}
+
+/* telas maiores: filtros ao lado do título */
+@media (min-width: 768px) {
+  .tabela-topo {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .tabela-card {
+    padding: var(--espaco-5);
+  }
+}

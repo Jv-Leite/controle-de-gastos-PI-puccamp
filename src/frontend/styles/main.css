@@ -1,0 +1,106 @@
+/* main.css: estilos base de todas as páginas (reset e acessibilidade). */
+
+/* zera margens e faz width/height incluírem borda e padding */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* atributo hidden sempre esconde, mesmo com display em outra regra */
+[hidden] {
+  display: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fonte);
+  font-size: var(--texto-base);
+  line-height: 1.5;
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--cor-titulo);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--cor-marca-texto);
+}
+
+/* listas sem marcadores */
+ul,
+ol {
+  list-style: none;
+}
+
+/* imagens nunca passam da largura do container */
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* campos herdam a fonte do site */
+input,
+select,
+textarea,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* contorno visível ao navegar pelo teclado */
+:focus-visible {
+  outline: 3px solid var(--cor-titulo);
+  outline-offset: 2px;
+}
+
+/* texto só para leitores de tela (invisível na tela) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* link "pular para o conteúdo": escondido, aparece ao receber foco */
+.pular-link {
+  position: absolute;
+  top: -100px;
+  left: var(--espaco-4);
+  z-index: 2000;
+  padding: var(--espaco-2) var(--espaco-4);
+  background-color: var(--cor-titulo);
+  color: var(--cor-branco);
+  border-radius: var(--raio-m);
+}
+
+.pular-link:focus {
+  top: var(--espaco-2);
+}
+
+/* quem pediu menos movimento no sistema fica sem animações */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
